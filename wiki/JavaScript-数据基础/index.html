@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <meta charset="utf-8">
+    
+    <title>JavaScript-基础 | Never Too Old To Learn</title>
+    
+    
+        <meta name="keywords" content="JavaScript 基础知识 数据类型" />
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="js 基础知识及原理ES 6为止,7种类型1234567数值（number）：整数和小数（比如1和2.2）字符串（string）：文本（比如Everybody Loves Eileen）。布尔值（boolean）：表示真伪的两个特殊值，即true（真）和false（假）undefined：表示“未定义”或不存在，即由于目前没有定义，所以此处暂时没有任何值null：表示空值，即此处的值为空对象（ob">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript-基础">
+<meta property="og:url" content="http://yoursite.com/wiki/JavaScript-%E6%95%B0%E6%8D%AE%E5%9F%BA%E7%A1%80/index.html">
+<meta property="og:site_name" content="Never Too Old To Learn">
+<meta property="og:description" content="js 基础知识及原理ES 6为止,7种类型1234567数值（number）：整数和小数（比如1和2.2）字符串（string）：文本（比如Everybody Loves Eileen）。布尔值（boolean）：表示真伪的两个特殊值，即true（真）和false（假）undefined：表示“未定义”或不存在，即由于目前没有定义，所以此处暂时没有任何值null：表示空值，即此处的值为空对象（ob">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2015-03-24T16:00:00.000Z">
+<meta property="article:modified_time" content="2020-08-18T15:53:41.397Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="JavaScript 基础知识 数据类型">
+<meta name="twitter:card" content="summary">
+    
+
+    
+        <link rel="alternate" href="/atom.xml" title="Never Too Old To Learn" type="application/atom+xml" />
+    
+
+    
+        <link rel="icon" href="/favicon.ico" />
+    
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/libs/open-sans/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+<script src="/libs/jquery/2.1.3/jquery.min.js"></script>
+
+    
+<script src="/libs/jquery/plugins/cookie/1.4.1/jquery.cookie.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+    
+    
+
+
+    
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+<meta name="generator" content="Hexo 5.0.0"></head>
+
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
+                
+                <span class="site-title">Never Too Old To Learn</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/">首页</a>
+                
+                    <a class="main-nav-link" href="/archives">归档</a>
+                
+                    <a class="main-nav-link" href="/categories">分类</a>
+                
+                    <a class="main-nav-link" href="/tags">标签</a>
+                
+                    <a class="main-nav-link" href="/about">关于</a>
+                
+            </nav>
+            
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/">首页</a></td>
+                
+                    <td><a class="main-nav-link" href="/archives">归档</a></td>
+                
+                    <td><a class="main-nav-link" href="/categories">分类</a></td>
+                
+                    <td><a class="main-nav-link" href="/tags">标签</a></td>
+                
+                    <td><a class="main-nav-link" href="/about">关于</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            
+            
+                <aside id="sidebar">
+   
+        
+    <div class="widget-wrap" id='categories'>
+        <h3 class="widget-title">
+            <span>categories</span>
+            &nbsp;
+            <a id='allExpand' href="#">
+                <i class="fa fa-angle-double-down fa-2x"></i>
+            </a>
+        </h3>
+        
+        
+        
+         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            CSS
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            基础
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/CSS--%E5%9F%BA%E7%A1%80/">CSS基础</a></li>  <li class="file"><a href="/wiki/CSS-%E8%A1%8C%E9%AB%98/">CSS行高设置</a></li>  <li class="file"><a href="/wiki/CSS-%E5%B0%8F%E6%A1%88%E4%BE%8B/">CSS案例</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Es6
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            基础
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Es6-%E5%9B%9E%E8%B0%83%E5%9C%B0%E7%8B%B1/">回调地狱</a></li>  <li class="file"><a href="/wiki/Es6-Promise/">Promise</a></li>  <li class="file"><a href="/wiki/Es6-%E6%9C%AC%E5%9C%B0%E5%AD%98%E5%82%A8%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF/">本地存储使用场景</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory open">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
+                            &nbsp;
+                            JavaScript
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory open">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
+                            &nbsp;
+                            基础
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file active"><a href="/wiki/JavaScript-%E6%95%B0%E6%8D%AE%E5%9F%BA%E7%A1%80/">JavaScript-基础</a></li>  <li class="file"><a href="/wiki/JavaScript-this/">JavaScript-this</a></li>  <li class="file"><a href="/wiki/JavaScript-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/">JavaScript-面向对象</a></li>  <li class="file"><a href="/wiki/JavaScript-%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0%E4%B8%8E%E6%99%AE%E9%80%9A%E5%87%BD%E6%95%B0%E7%9A%84%E5%8C%BA%E5%88%AB/">JavaScript-箭头函数与普通函数的区别</a></li>  <li class="file"><a href="/wiki/JavaScript-%E9%97%AD%E5%8C%85/">JavaScript-闭包</a></li>  <li class="file"><a href="/wiki/Jquery%E5%92%8Cvue%E5%8C%BA%E5%88%AB/">Jquery和vue区别</a></li>  <li class="file"><a href="/wiki/JavaScript-%E8%B7%A8%E5%9F%9F/">JavaScript-跨域</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Linux
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            命令
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Linux-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">linux-常用命令</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            PHP
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            基础
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/PHP-%E5%9F%BA%E7%A1%80/">php基础</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            框架
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Laravel
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/PHP-Laravel%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">Laravel常用命令</a></li>  <li class="file"><a href="/wiki/PHP-Laravel-CURD%E5%B0%8F%E7%BB%93/">Laravel-CURD小结</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Vue
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            基础
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Vue%E6%8F%92%E6%A7%BD%E8%AF%A6%E8%A7%A3/">Vue插槽详解</a></li>  <li class="file"><a href="/wiki/vue%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/">Vue生命周期</a></li>  <li class="file"><a href="/wiki/vue%E4%B8%AD%E7%9A%84data%E4%B8%BA%E4%BB%80%E4%B9%88%E5%BF%85%E9%A1%BB%E6%98%AF%E4%B8%80%E4%B8%AA%E5%87%BD%E6%95%B0/">vue中的data为什么必须是一个函数</a></li>  <li class="file"><a href="/wiki/vuex%E7%9A%84%E4%BD%BF%E7%94%A8/">vuex的使用</a></li>  <li class="file"><a href="/wiki/vue%E7%BB%84%E4%BB%B6%E4%BC%A0%E5%80%BC/">vue组件传值</a></li>  <li class="file"><a href="/wiki/vue%E8%B7%AF%E7%94%B1%E7%9A%84%E8%B7%B3%E8%BD%AC%E6%96%B9%E5%BC%8F/">vue路由的跳转方式</a></li>  <li class="file"><a href="/wiki/vue%E8%B7%A8%E5%9F%9F%E8%AF%B7%E6%B1%82%E6%8E%A5%E5%8F%A3%E4%BB%A3%E7%90%86%E6%96%B9%E5%BC%8F%E6%80%8E%E4%B9%88%E4%BD%BF%E7%94%A8%EF%BC%9F/">怎么使用？vue跨域请求接口代理方式</a></li>  <li class="file"><a href="/wiki/vue-loader%E5%B9%B2%E4%BB%80%E4%B9%88%E7%94%A8%E7%9A%84/">vue-loader干什么用的</a></li>  <li class="file"><a href="/wiki/vue-cli3.0%E5%92%8Cvue-cli2.0%E9%A1%B9%E7%9B%AE%E6%9E%84%E5%BB%BA%E3%80%81%E8%BF%90%E8%A1%8C%E3%80%81%E7%BC%96%E8%AF%91%E5%91%BD%E4%BB%A4%E5%8C%BA%E5%88%AB/">vue-cli3.0和vue-cli2.0项目构建、运行、编译命令区别</a></li>  <li class="file"><a href="/wiki/vue%E4%B8%ADkeep-alive%E7%9A%84%E4%BD%9C%E7%94%A8/">vue中keep-alive的作用</a></li>  <li class="file"><a href="/wiki/vue%E4%B8%ADwatch%E5%92%8Ccomputed/">vue中watch和computed</a></li>  <li class="file"><a href="/wiki/vue%E4%B9%8Bv-if%E4%B8%8Ev-show%E5%8C%BA%E5%88%AB/">v-if与v-show</a></li>  <li class="file"><a href="/wiki/vue-cli%E9%A1%B9%E7%9B%AE%E4%B8%ADsrc%E7%9B%AE%E5%BD%95%E6%AF%8F%E4%B8%AA%E6%96%87%E4%BB%B6%E5%A4%B9%E5%92%8C%E6%96%87%E4%BB%B6%E7%9A%84%E7%94%A8%E6%B3%95/">vue-cli项目中src目录每个文件夹和文件的用法</a></li>  <li class="file"><a href="/wiki/vue%E4%B8%AD-route%E5%92%8C-router%E7%9A%84%E5%8C%BA%E5%88%AB/">vue中$route和$router的区别</a></li>  <li class="file"><a href="/wiki/vue%E4%B8%AD%E6%8F%92%E4%BB%B6%E4%BD%BF%E7%94%A8/">vue中插件使用</a></li>  <li class="file"><a href="/wiki/vue%E5%8F%8C%E5%90%91%E7%BB%91%E5%AE%9A%E5%8E%9F%E7%90%86/">vue双向绑定原理</a></li>  <li class="file"><a href="/wiki/vue-router%E5%8A%A8%E6%80%81%E8%B7%AF%E7%94%B1%E7%9A%84%E5%AE%9A%E4%B9%89/">vue-router动态路由的定义</a></li>  <li class="file"><a href="/wiki/vue%E4%B8%ADNextTick%E6%98%AF%E5%81%9A%E4%BB%80%E4%B9%88%E7%9A%84/">vue中NextTick是做什么的</a></li>  <li class="file"><a href="/wiki/vue%E9%A1%B9%E7%9B%AE%E6%98%AF%E6%89%93%E5%8C%85%E5%8F%8A%E7%94%9F%E6%88%90%E7%9A%84%E6%96%87%E4%BB%B6/">vue项目是打包及生成的文件</a></li>  <li class="file"><a href="/wiki/vue%E5%8D%95%E9%A1%B5%E9%9D%A2%E5%BA%94%E7%94%A8%E7%9A%84%E4%BC%98%E7%BC%BA%E7%82%B9/">vue单页面应用的优缺点</a></li>  <li class="file"><a href="/wiki/vue%E7%9A%84%E6%A0%B7%E5%BC%8F%E7%A9%BF%E9%80%8F/">vue的样式穿透</a></li>  <li class="file"><a href="/wiki/vue%E4%B8%ADkey%E7%9A%84%E4%BD%9C%E7%94%A8%E6%80%BB%E7%BB%93/">vue中key的作用总结</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            mysql
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            基础
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Mysql-%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5%E5%A4%B1%E8%B4%A5%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/">Mysql远程连接失败解决方案</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            优化
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/%E4%BC%98%E5%8C%96-%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/">优化-性能优化</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            工具
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            git
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/%E5%B7%A5%E5%85%B7-git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">git常用命令</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                     <li class="file"><a href="/wiki/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E7%BD%91%E7%BB%9C/">计算机原理与网络</a></li>  </ul> 
+    </div>
+    <script>
+        $(document).ready(function() {
+            var iconFolderOpenClass  = 'fa-folder-open';
+            var iconFolderCloseClass = 'fa-folder';
+            var iconAllExpandClass = 'fa-angle-double-down';
+            var iconAllPackClass = 'fa-angle-double-up';
+            // Handle directory-tree expansion:
+            // 左键单独展开目录
+            $(document).on('click', '#categories a[data-role="directory"]', function (event) {
+                event.preventDefault();
+
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconFolderOpenClass);
+                var subtree = $(this).siblings('ul');
+                icon.removeClass(iconFolderOpenClass).removeClass(iconFolderCloseClass);
+                if (expanded) {
+                    if (typeof subtree != 'undefined') {
+                        subtree.slideUp({ duration: 100 });
+                    }
+                    icon.addClass(iconFolderCloseClass);
+                } else {
+                    if (typeof subtree != 'undefined') {
+                        subtree.slideDown({ duration: 100 });
+                    }
+                    icon.addClass(iconFolderOpenClass);
+                }
+            });
+            // 右键展开下属所有目录
+            $('#categories a[data-role="directory"]').bind("contextmenu", function(event){
+                event.preventDefault();
+                
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconFolderOpenClass);
+                var listNode = $(this).siblings('ul');
+                var subtrees = $.merge(listNode.find('li ul'), listNode);
+                var icons = $.merge(listNode.find('.fa'), icon);
+                icons.removeClass(iconFolderOpenClass).removeClass(iconFolderCloseClass);
+                if(expanded) {
+                    subtrees.slideUp({ duration: 100 });
+                    icons.addClass(iconFolderCloseClass);
+                } else {
+                    subtrees.slideDown({ duration: 100 });
+                    icons.addClass(iconFolderOpenClass);
+                }
+            })
+            // 展开关闭所有目录按钮
+            $(document).on('click', '#allExpand', function (event) {
+                event.preventDefault();
+                
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconAllExpandClass);
+                icon.removeClass(iconAllExpandClass).removeClass(iconAllPackClass);
+                if(expanded) {
+                    $('#sidebar .fa.fa-folder').removeClass('fa-folder').addClass('fa-folder-open')
+                    $('#categories li ul').slideDown({ duration: 100 });
+                    icon.addClass(iconAllPackClass);
+                } else {
+                    $('#sidebar .fa.fa-folder-open').removeClass('fa-folder-open').addClass('fa-folder')
+                    $('#categories li ul').slideUp({ duration: 100 });
+                    icon.addClass(iconAllExpandClass);
+                }
+            });  
+        });
+    </script>
+
+    
+    <div id="toTop" class="fa fa-angle-up"></div>
+</aside>
+            
+            <section id="main"><article id="post-JavaScript-数据基础" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/JavaScript/">JavaScript</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/JavaScript/%E5%9F%BA%E7%A1%80/">基础</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="/tags/JavaScript-%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" rel="tag">JavaScript 基础知识 数据类型</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/wiki/JavaScript-%E6%95%B0%E6%8D%AE%E5%9F%BA%E7%A1%80/">
+            <time datetime="2015-03-24T16:00:00.000Z" itemprop="datePublished">2015-03-25</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/zthxxx/Wiki-site/raw/writing/source/_posts/JavaScript-数据基础.md'> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/zthxxx/Wiki-site/edit/writing/source/_posts/JavaScript-数据基础.md'> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/zthxxx/Wiki-site/commits/writing/source/_posts/JavaScript-数据基础.md'> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 class="article-title" itemprop="name">
+            JavaScript-基础
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                <div id="toc" class="toc-article">
+                <strong class="toc-title">Catalogue</strong>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#js-%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E5%8F%8A%E5%8E%9F%E7%90%86"><span class="toc-number">1.</span> <span class="toc-text">js 基础知识及原理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#ES-6%E4%B8%BA%E6%AD%A2-7%E7%A7%8D%E7%B1%BB%E5%9E%8B"><span class="toc-number">1.1.</span> <span class="toc-text">ES 6为止,7种类型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%86%85%E7%BD%AE%E7%9A%84%E7%B1%BB%E5%9E%8B%E8%AF%86%E5%88%AB%E6%96%B9%E6%B3%95"><span class="toc-number">1.2.</span> <span class="toc-text">内置的类型识别方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A0%86%E5%92%8C%E6%A0%88"><span class="toc-number">1.3.</span> <span class="toc-text">堆和栈</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF%E6%9C%BA%E5%88%B6EventLoop"><span class="toc-number">1.4.</span> <span class="toc-text">事件循环机制EventLoop</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%89%A7%E8%A1%8C%E4%B8%8A%E4%B8%8B%E6%96%87-%E5%87%BD%E6%95%B0"><span class="toc-number">1.5.</span> <span class="toc-text">执行上下文(函数)</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%A0%88%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"><span class="toc-number">1.5.1.</span> <span class="toc-text">栈的数据结构</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%89%A7%E8%A1%8C%E4%B8%8A%E4%B8%8B%E6%96%87%E7%9A%84%E6%89%A7%E8%A1%8C%E6%A0%88"><span class="toc-number">1.5.2.</span> <span class="toc-text">执行上下文的执行栈</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%89%A7%E8%A1%8C%E6%A0%88%E7%9A%84%E5%8E%8B%E6%A0%88%E5%87%BA%E6%A0%88%E8%BF%87%E7%A8%8B"><span class="toc-number">1.5.3.</span> <span class="toc-text">执行栈的压栈出栈过程:</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%89%A7%E8%A1%8C%E6%A0%88%E7%9A%84%E5%8E%8B%E6%A0%88%E5%87%BA%E6%A0%88%E8%BF%87%E7%A8%8B-1"><span class="toc-number">1.5.4.</span> <span class="toc-text">执行栈的压栈出栈过程:</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E7%9A%84%E4%BD%9C%E7%94%A8%E5%9F%9F"><span class="toc-number">2.</span> <span class="toc-text">函数的作用域</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#js%E7%9A%84%E8%A7%A3%E9%87%8A%E5%92%8C%E6%89%A7%E8%A1%8C%E9%98%B6%E6%AE%B5"><span class="toc-number">2.1.</span> <span class="toc-text">js的解释和执行阶段</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%9C%E7%94%A8%E5%9F%9F"><span class="toc-number">2.2.</span> <span class="toc-text">作用域</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%98%E9%87%8F%E6%8F%90%E5%8D%87"><span class="toc-number">2.3.</span> <span class="toc-text">变量提升</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%9C%E7%94%A8%E5%9F%9F%E9%93%BE"><span class="toc-number">2.4.</span> <span class="toc-text">作用域链</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%99%A8"><span class="toc-number">3.</span> <span class="toc-text">垃圾回收机器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8E%9F%E5%9E%8B%E9%93%BE"><span class="toc-number">4.</span> <span class="toc-text">原型链</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E6%95%B0%E7%BB%84%E6%96%B9%E6%B3%95"><span class="toc-number">5.</span> <span class="toc-text">常用数组方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%96%B9%E6%B3%95"><span class="toc-number">6.</span> <span class="toc-text">常用字符串方法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%83%8C%E5%95%8A%E8%83%8C%E6%88%91%E9%AA%84%E5%82%B2%E7%9A%84%E5%BF%83"><span class="toc-number">6.1.</span> <span class="toc-text">背啊背我骄傲的心</span></a></li></ol></li></ol>
+                </div>
+            
+        
+        
+            <h3 id="js-基础知识及原理"><a href="#js-基础知识及原理" class="headerlink" title="js 基础知识及原理"></a>js 基础知识及原理</h3><h4 id="ES-6为止-7种类型"><a href="#ES-6为止-7种类型" class="headerlink" title="ES 6为止,7种类型"></a>ES 6为止,7种类型</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">数值（number）：整数和小数（比如<span class="number">1</span>和<span class="number">2.2</span>）</span><br><span class="line">字符串（string）：文本（比如Everybody Loves Eileen）。</span><br><span class="line">布尔值（boolean）：表示真伪的两个特殊值，即<span class="literal">true</span>（真）和<span class="literal">false</span>（假）</span><br><span class="line"><span class="literal">undefined</span>：表示“未定义”或不存在，即由于目前没有定义，所以此处暂时没有任何值</span><br><span class="line"><span class="literal">null</span>：表示空值，即此处的值为空</span><br><span class="line">对象（object）：各种值组成的集合</span><br><span class="line"><span class="built_in">Symbol</span>：独一无二的值，可以保证不会与其他属性名产生冲突</span><br></pre></td></tr></table></figure>
+
+<h4 id="内置的类型识别方法"><a href="#内置的类型识别方法" class="headerlink" title="内置的类型识别方法"></a>内置的类型识别方法</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typeof</span> 运算符</span><br><span class="line"><span class="keyword">instanceof</span> 运算符</span><br><span class="line"><span class="built_in">Object</span>.prototype.toString.call() </span><br></pre></td></tr></table></figure>
+
+<h4 id="堆和栈"><a href="#堆和栈" class="headerlink" title="堆和栈"></a>堆和栈</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">值类型：</span><br><span class="line">string number boolean <span class="literal">null</span>  <span class="literal">undefined</span>  </span><br><span class="line">简单数据类型 存放的栈区(栈内存、变量对象), 属性名=属性值</span><br><span class="line"></span><br><span class="line">引用类型</span><br><span class="line">数组、对象、函数</span><br><span class="line">对象 属性名=内存地址，指向堆区，堆内存空间</span><br><span class="line"></span><br><span class="line">两种类型的复制与传递</span><br><span class="line">值类型相当于copy, 互不影响, 引用类型操作的是指向内存的地址,相互影响</span><br><span class="line">函数参数的引用传递及值传递,如果实参是值类型,会复制一个值类型的副本给函数,</span><br><span class="line">不会影响原来的传递参数</span><br><span class="line">如果是 引用类型,传递只是引用类型的一个地址值,在函数内部操作参数对应的</span><br><span class="line">引用对象会影响到传递的参数</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="事件循环机制EventLoop"><a href="#事件循环机制EventLoop" class="headerlink" title="事件循环机制EventLoop"></a>事件循环机制EventLoop</h4><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">javascript</span> 代码是队列的形式一个个进行执行的,同一时间只能执行一段代码</span><br><span class="line"></span><br><span class="line">队列数据结构:</span><br><span class="line"><span class="selector-tag">js</span>单线程,</span><br><span class="line">为什么是单线程？ 执行线程和<span class="selector-tag">ui</span>现成互斥</span><br><span class="line">同步任务 赋值操作、循环、分支语句等</span><br><span class="line">异步任务: <span class="selector-tag">dom</span>事件、<span class="selector-tag">ajax</span>、<span class="selector-tag">bom</span>的一下<span class="selector-tag">api</span></span><br><span class="line"></span><br><span class="line"><span class="selector-tag">js</span>事件循环机制：</span><br><span class="line"><span class="selector-tag">---js</span>的执行引擎的主线程从任务队列中获取任务执行</span><br><span class="line"><span class="selector-tag">---</span>如果任务是异步的,那么运行到异步任务时,异步任务就退出主线程,主线程进行下一个任务的获取处理</span><br><span class="line"><span class="selector-tag">---</span>如果异步任务完成, 就插入到任务队列的末尾,等待主线程处理</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h4 id="执行上下文-函数"><a href="#执行上下文-函数" class="headerlink" title="执行上下文(函数)"></a>执行上下文(函数)</h4><h5 id="栈的数据结构"><a href="#栈的数据结构" class="headerlink" title="栈的数据结构"></a>栈的数据结构</h5><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">栈的数据结构:先进后出 栈顶<span class="selector-tag">push</span> 栈低<span class="selector-tag">pop</span></span><br><span class="line"><span class="selector-tag">EC</span>:函数执行环境(或者执行上下文) <span class="selector-tag">Execution</span> <span class="selector-tag">Context</span></span><br><span class="line"><span class="selector-tag">ECS</span>: 执行环境栈 <span class="selector-tag">Execution</span> <span class="selector-tag">Context</span> <span class="selector-tag">Stack</span></span><br><span class="line"><span class="selector-tag">Vo</span>变量对象:</span><br><span class="line"><span class="selector-tag">scope</span> <span class="selector-tag">chain</span> 作用域链</span><br></pre></td></tr></table></figure>
+<h5 id="执行上下文的执行栈"><a href="#执行上下文的执行栈" class="headerlink" title="执行上下文的执行栈"></a>执行上下文的执行栈</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">js执行在单线程上,所有的代码都是排队执行</span><br><span class="line"></span><br><span class="line">一开始浏览器执行全局的代码时,首先创建全局的执行上下文,压入执行栈的顶部</span><br><span class="line"></span><br><span class="line">每当进入一个函数的执行,就会创建函数的执行上下文,并且把它压入执行栈的顶部,</span><br><span class="line">当前函数执行完成后,当前函数的执行上下文出栈,并等待垃圾回收</span><br><span class="line"></span><br><span class="line">浏览器的js执行引擎总是访问栈顶的执行上下文</span><br><span class="line">全局上下文只有唯一的一个,他在浏览器关闭时候出栈</span><br></pre></td></tr></table></figure>
+<h5 id="执行栈的压栈出栈过程"><a href="#执行栈的压栈出栈过程" class="headerlink" title="执行栈的压栈出栈过程:"></a>执行栈的压栈出栈过程:</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">四个函数f1  f2-&gt;f3-&gt;f4    f1()  f2()</span><br><span class="line">f1的EC--&gt;压入执行环境栈</span><br><span class="line">f2的EC-&gt;压入执行环境栈  在f1之上</span><br><span class="line">f3的EC-&gt;压入执行环境栈, f2之上</span><br><span class="line">f4的EC-&gt;压入执行环境栈, f3之上</span><br><span class="line"></span><br><span class="line">f1执行完成-&gt; f1的ec出栈</span><br><span class="line">f4执行完成-&gt; f4的ec出栈</span><br><span class="line">f3执行完成-&gt; f3的ec出栈</span><br><span class="line">f2执行完成-&gt; f2的ec出栈</span><br><span class="line"></span><br><span class="line">进栈 <span class="number">1234</span>  出栈 <span class="number">4321</span></span><br><span class="line"></span><br><span class="line">最后只剩下全局的EC 浏览器关闭出栈</span><br></pre></td></tr></table></figure>
+<h5 id="执行栈的压栈出栈过程-1"><a href="#执行栈的压栈出栈过程-1" class="headerlink" title="执行栈的压栈出栈过程:"></a>执行栈的压栈出栈过程:</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">创建----&gt;执行----&gt;销毁</span><br><span class="line"></span><br><span class="line">创建：生成变量对象  建立作用域链   确定<span class="built_in">this</span>指向</span><br><span class="line">执行: 变量赋值  函数引用   执行其他代码</span><br><span class="line">执行完毕, 等待垃圾回收你</span><br></pre></td></tr></table></figure>
+
+<h3 id="函数的作用域"><a href="#函数的作用域" class="headerlink" title="函数的作用域"></a>函数的作用域</h3><h4 id="js的解释和执行阶段"><a href="#js的解释和执行阶段" class="headerlink" title="js的解释和执行阶段"></a>js的解释和执行阶段</h4><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">解释: 词法分析,语法分析,作用域规则确定</span><br><span class="line">执行阶段:创建执行上下文, 执行函数代码, 垃圾回收</span><br></pre></td></tr></table></figure>
+
+<h4 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">作用域: 变量声明的区域 也就是变量和函数的可访问范围</span><br><span class="line"></span><br><span class="line">函数的参数 只能在内部访问，局部变量</span><br><span class="line">没有 <span class="keyword">var</span>  全局 任何地方可以访问</span><br></pre></td></tr></table></figure>
+<h4 id="变量提升"><a href="#变量提升" class="headerlink" title="变量提升"></a>变量提升</h4><h4 id="作用域链"><a href="#作用域链" class="headerlink" title="作用域链"></a>作用域链</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">作用域链是一个数组,由内向外逐级查找,直到找到同名标识符,找到不在遍历,找不到报错</span><br></pre></td></tr></table></figure>
+
+<h3 id="垃圾回收机器"><a href="#垃圾回收机器" class="headerlink" title="垃圾回收机器"></a>垃圾回收机器</h3><h3 id="原型链"><a href="#原型链" class="headerlink" title="原型链"></a>原型链</h3><p>不确定参数  处理 最大最小值<br>参数太多怎么办？ 封装成一个对象传递</p>
+<h3 id="常用数组方法"><a href="#常用数组方法" class="headerlink" title="常用数组方法"></a>常用数组方法</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Array</span>.map()</span><br><span class="line"></span><br><span class="line">此方法是将数组中的每个元素调用一个提供的函数，结果作为一个新的数组返回，并没有改变原来的数组</span><br><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br><span class="line">    <span class="keyword">let</span> newArr = arr.map(<span class="function"><span class="params">x</span> =&gt;</span> x*<span class="number">2</span>)</span><br><span class="line">    <span class="comment">//arr= [1, 2, 3, 4, 5]   原数组保持不变</span></span><br><span class="line">    <span class="comment">//newArr = [2, 4, 6, 8, 10] 返回新数组</span></span><br><span class="line">　　</span><br><span class="line"></span><br><span class="line"><span class="built_in">Array</span>.forEach()</span><br><span class="line"></span><br><span class="line">此方法是将数组中的每个元素执行传进提供的函数，没有返回值，注意和map方法区分</span><br><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br><span class="line">   num.forEach(<span class="function"><span class="params">x</span> =&gt;</span> x*<span class="number">2</span>)</span><br><span class="line">   <span class="comment">// arr = [1, 2, 3, 4, 5]  数组改变,注意和map区分</span></span><br><span class="line">　　</span><br><span class="line"></span><br><span class="line"><span class="built_in">Array</span>.filter()</span><br><span class="line"></span><br><span class="line">此方法是将所有元素进行判断，将满足条件的元素作为一个新的数组返回</span><br><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br><span class="line">    <span class="keyword">const</span> isBigEnough = <span class="function"><span class="params">value</span> =&gt;</span> value &gt;= <span class="number">3</span></span><br><span class="line">    <span class="keyword">let</span> newArr = arr.filter(isBigEnough )</span><br><span class="line">    <span class="comment">//newNum = [3, 4, 5] 满足条件的元素返回为一个新的数组</span></span><br><span class="line">　　</span><br><span class="line"></span><br><span class="line"><span class="built_in">Array</span>.every()</span><br><span class="line"></span><br><span class="line">此方法是将所有元素进行判断返回一个布尔值，如果所有元素都满足判断条件，则返回<span class="literal">true</span>，否则为<span class="literal">false</span>：</span><br><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br><span class="line">    <span class="keyword">const</span> isLessThan4 = <span class="function"><span class="params">value</span> =&gt;</span> value &lt; <span class="number">4</span></span><br><span class="line">    <span class="keyword">const</span> isLessThan6 =&gt; <span class="function"><span class="params">value</span> =&gt;</span> value &lt; <span class="number">6</span></span><br><span class="line">    arr.every(isLessThan4 ) <span class="comment">//false</span></span><br><span class="line">    arr.every(isLessThan6 ) <span class="comment">//true</span></span><br><span class="line">　　</span><br><span class="line"></span><br><span class="line"><span class="built_in">Array</span>.some()</span><br><span class="line"></span><br><span class="line"> 此方法是将所有元素进行判断返回一个布尔值，如果存在元素都满足判断条件，则返回<span class="literal">true</span>，若所有元素都不满足判断条件，则返回<span class="literal">false</span>：</span><br><span class="line"><span class="keyword">let</span> arr= [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br><span class="line">    <span class="keyword">const</span> isLessThan4 = <span class="function"><span class="params">value</span> =&gt;</span> value &lt; <span class="number">4</span></span><br><span class="line">    <span class="keyword">const</span> isLessThan6 = <span class="function"><span class="params">value</span> =&gt;</span> value &gt; <span class="number">6</span></span><br><span class="line">    arr.some(isLessThan4 ) <span class="comment">//true</span></span><br><span class="line">    arr.some(isLessThan6 ) <span class="comment">//false</span></span><br><span class="line">　　</span><br><span class="line"></span><br><span class="line"><span class="built_in">Array</span>.reduce()</span><br><span class="line"></span><br><span class="line"> 此方法是所有元素调用返回函数，返回值为最后结果,传入的值必须是函数类型：</span><br><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br><span class="line">   <span class="keyword">const</span> add = <span class="function">(<span class="params">a, b</span>) =&gt;</span> a + b</span><br><span class="line">   <span class="keyword">let</span> sum = arr.reduce(add)</span><br><span class="line">   <span class="comment">//sum = 15  相当于累加的效果</span></span><br><span class="line">   与之相对应的还有一个 <span class="built_in">Array</span>.reduceRight() 方法，区别是这个是从右向左操作的</span><br><span class="line">　　</span><br><span class="line"></span><br><span class="line"><span class="built_in">Array</span>.push()</span><br><span class="line"></span><br><span class="line"> 此方法是在数组的后面添加新加元素，此方法改变了数组的长度：</span><br><span class="line">   </span><br><span class="line"><span class="built_in">Array</span>.pop()</span><br><span class="line"></span><br><span class="line"> 此方法在数组后面删除最后一个元素，并返回数组，此方法改变了数组的长度：</span><br><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br><span class="line">    arr.pop()</span><br><span class="line">    <span class="built_in">console</span>.log(arr) <span class="comment">//[1, 2, 3, 4]</span></span><br><span class="line">    <span class="built_in">console</span>.log(arr.length) <span class="comment">//4</span></span><br><span class="line">　　</span><br><span class="line"></span><br><span class="line"><span class="built_in">Array</span>.shift()</span><br><span class="line"></span><br><span class="line"> 此方法在数组后面删除第一个元素，并返回数组，此方法改变了数组的长度：</span><br><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br><span class="line">    arr.shift()</span><br><span class="line">    <span class="built_in">console</span>.log(arr) <span class="comment">//[2, 3, 4, 5]</span></span><br><span class="line">    <span class="built_in">console</span>.log(arr.length) <span class="comment">//4 </span></span><br><span class="line">　　</span><br><span class="line"></span><br><span class="line"><span class="built_in">Array</span>.unshift()</span><br><span class="line"></span><br><span class="line"> 此方法是将一个或多个元素添加到数组的开头，并返回新数组的长度：</span><br><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br><span class="line">    arr.unshift(<span class="number">6</span>, <span class="number">7</span>)</span><br><span class="line">    <span class="built_in">console</span>.log(arr) <span class="comment">//[6, 7, 1, 2, 3, 4, 5]</span></span><br><span class="line">    <span class="built_in">console</span>.log(arr.length) <span class="comment">//7 </span></span><br><span class="line">　　</span><br><span class="line"></span><br><span class="line"><span class="built_in">Array</span>.isArray()</span><br><span class="line"></span><br><span class="line"> 判断一个对象是不是数组，返回的是布尔值</span><br><span class="line"> </span><br><span class="line"><span class="built_in">Array</span>.concat()</span><br><span class="line"></span><br><span class="line"> 此方法是一个可以将多个数组拼接成一个数组：</span><br><span class="line"><span class="keyword">let</span> arr1 = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line">      arr2 = [<span class="number">4</span>, <span class="number">5</span>]</span><br><span class="line">  <span class="keyword">let</span> arr = arr1.concat(arr2)</span><br><span class="line">  <span class="built_in">console</span>.log(arr)<span class="comment">//[1, 2, 3, 4, 5]</span></span><br><span class="line">　　</span><br><span class="line"></span><br><span class="line"><span class="built_in">Array</span>.toString()</span><br><span class="line"></span><br><span class="line"> 此方法将数组转化为字符串：</span><br><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>];</span><br><span class="line">   <span class="keyword">let</span> str = arr.toString()</span><br><span class="line">   <span class="built_in">console</span>.log(str)<span class="comment">// 1,2,3,4,5</span></span><br><span class="line">　　</span><br><span class="line"></span><br><span class="line"><span class="built_in">Array</span>.join()</span><br><span class="line"></span><br><span class="line">  此方法也是将数组转化为字符串：</span><br><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>];</span><br><span class="line">   <span class="keyword">let</span> str1 = arr.toString()</span><br><span class="line">   <span class="keyword">let</span> str2 = arr.toString(<span class="string">&#x27;,&#x27;</span>)</span><br><span class="line">   <span class="keyword">let</span> str3 = arr.toString(<span class="string">&#x27;##&#x27;</span>)</span><br><span class="line">   <span class="built_in">console</span>.log(str1)<span class="comment">// 12345</span></span><br><span class="line">   <span class="built_in">console</span>.log(str2)<span class="comment">// 1,2,3,4,5</span></span><br><span class="line">   <span class="built_in">console</span>.log(str3)<span class="comment">// 1##2##3##4##5</span></span><br><span class="line">　　</span><br><span class="line"></span><br><span class="line">通过例子可以看出和toString的区别，可以设置元素之间的间隔~ </span><br><span class="line"></span><br><span class="line"><span class="built_in">Array</span>.splice(开始位置， 删除的个数，元素)万能方法，可以实现增删改：</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>];</span><br><span class="line">     <span class="keyword">let</span> arr1 = arr.splice(<span class="number">2</span>, <span class="number">0</span> <span class="string">&#x27;haha&#x27;</span>)</span><br><span class="line">     <span class="keyword">let</span> arr2 = arr.splice(<span class="number">2</span>, <span class="number">3</span>)</span><br><span class="line">     <span class="keyword">let</span> arr1 = arr.splice(<span class="number">2</span>, <span class="number">1</span> <span class="string">&#x27;haha&#x27;</span>)</span><br><span class="line">     <span class="built_in">console</span>.log(arr1) <span class="comment">//[1, 2, &#x27;haha&#x27;, 3, 4, 5]新增一个元素</span></span><br><span class="line">     <span class="built_in">console</span>.log(arr2) <span class="comment">//[1, 2] 删除三个元素</span></span><br><span class="line">     <span class="built_in">console</span>.log(arr3) <span class="comment">//[1, 2, &#x27;haha&#x27;, 4, 5] 替换一个元素</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="常用字符串方法"><a href="#常用字符串方法" class="headerlink" title="常用字符串方法"></a>常用字符串方法</h3><h4 id="背啊背我骄傲的心"><a href="#背啊背我骄傲的心" class="headerlink" title="背啊背我骄傲的心"></a>背啊背我骄傲的心</h4><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">字符串方法</span><br><span class="line"> 拼接 <span class="selector-tag">concat</span></span><br><span class="line"> 截取 </span><br><span class="line"><span class="selector-tag">str</span><span class="selector-class">.slice</span>(1, 5) 1<span class="selector-tag">-5</span>之间 </span><br><span class="line"><span class="selector-tag">str</span><span class="selector-class">.substring</span>(1,5) 包含第一个 不包含最后一个</span><br><span class="line">str.substr(2, 6);//从下标2开始往后数6个数 不包括第一个下标</span><br><span class="line"><span class="selector-tag">str</span><span class="selector-class">.indexOf</span>(&quot;<span class="selector-tag">abc</span>&quot;) 含返回第一位的下标，停止查找，如没有返回 <span class="selector-tag">-1</span></span><br><span class="line"><span class="selector-tag">str</span><span class="selector-class">.lastIndexOf</span>(&quot;<span class="selector-tag">abc</span>&quot;) 含返回第一位的下标，停止查找，如没有返回 <span class="selector-tag">-1</span></span><br><span class="line">大小写转换  <span class="selector-tag">toUpperCase</span>  <span class="selector-tag">toLowerCase</span></span><br><span class="line">重复字符串 <span class="selector-tag">repeat</span></span><br><span class="line">字符串转数组 <span class="selector-tag">split</span>()</span><br><span class="line">字符串查找   </span><br><span class="line"><span class="selector-tag">charAt</span>  返回指定位置的字符串</span><br><span class="line"><span class="selector-tag">str</span><span class="selector-class">.replace</span>(&quot;天天&quot;, &quot;**&quot;); 只替换一次  </span><br><span class="line"><span class="selector-tag">str</span><span class="selector-class">.match</span>(&quot;天天&quot;); 返回查找到的字符串  没有 <span class="selector-tag">null</span></span><br><span class="line"><span class="selector-tag">str</span><span class="selector-class">.search</span>(&quot;天天&quot;) 找到返回下标 找不到返回 <span class="selector-tag">-1</span></span><br><span class="line"><span class="selector-tag">str</span><span class="selector-class">.startsWith</span>(&quot;<span class="selector-tag">he</span>&quot;); 以<span class="selector-tag">he</span>开始   布尔值</span><br><span class="line"><span class="selector-tag">str</span><span class="selector-class">.endsWith</span>(&quot;<span class="selector-tag">world</span>&quot;); 以<span class="selector-tag">world</span> 结束 布尔值</span><br><span class="line"><span class="selector-tag">str</span><span class="selector-class">.includes</span>(&quot;<span class="selector-tag">o</span>&quot;);  布尔值</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br></pre></td><td class="code"><pre><span class="line">charAt()</span><br><span class="line"></span><br><span class="line">查找返回指定位置的字符</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line"> <span class="keyword">var</span> str = <span class="string">&quot;abcdefg&quot;</span>;</span><br><span class="line">        <span class="keyword">var</span> s = str.charAt(<span class="number">5</span>); <span class="comment">// 下标为5的字符</span></span><br><span class="line">        <span class="built_in">console</span>.log(s);<span class="comment">//f</span></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">charcodeAt()</span><br><span class="line"></span><br><span class="line">查找返回指定位置字符的unicdoe码</span><br><span class="line"></span><br><span class="line"> <span class="keyword">var</span> str = <span class="string">&quot;abcdefg&quot;</span>;</span><br><span class="line">        <span class="keyword">var</span> s = str.charCodeAt(<span class="number">5</span>); <span class="comment">// 下标为5的字符的unicdoe码 </span></span><br><span class="line">        <span class="built_in">console</span>.log(s);<span class="comment">//102</span></span><br><span class="line">concat()</span><br><span class="line"></span><br><span class="line">连接字符串</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line"> <span class="keyword">var</span> str = <span class="string">&quot;abc&quot;</span>;</span><br><span class="line">        <span class="keyword">var</span> str1 = str.concat(<span class="string">&quot;a&quot;</span>, <span class="string">&quot;b&quot;</span>, <span class="string">&quot;c&quot;</span>, <span class="string">&quot;dsdafsdafsad&quot;</span>);</span><br><span class="line">        <span class="built_in">console</span>.log(str1);<span class="comment">//abcabcdsdafsdafsad</span></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">slice()</span><br><span class="line"></span><br><span class="line">字符串截取</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> str = <span class="string">&quot;abcdefghijklm&quot;</span>;</span><br><span class="line">        <span class="keyword">var</span> str1 = str.slice(<span class="number">1</span>, <span class="number">5</span>);</span><br><span class="line">        <span class="built_in">console</span>.log(str1);<span class="comment">//bcde</span></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">详细用法请参考数组用法。</span><br><span class="line"></span><br><span class="line">split()</span><br><span class="line"></span><br><span class="line">将字符串转换为数组</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line"> <span class="keyword">var</span> str = <span class="string">&quot;abcdefg&quot;</span></span><br><span class="line">        <span class="keyword">var</span> str1 =str.split(<span class="string">&quot;&quot;</span>)</span><br><span class="line">        <span class="built_in">console</span>.log(str);<span class="comment">//abcdefg</span></span><br><span class="line">        <span class="built_in">console</span>.log(str1)<span class="comment">//[&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot;, &quot;e&quot;, &quot;f&quot;, &quot;g&quot;]</span></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">substring()</span><br><span class="line"></span><br><span class="line">字符串截取</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line"> <span class="keyword">var</span> str = <span class="string">&quot;abcdefghijklm&quot;</span>;</span><br><span class="line">        <span class="keyword">var</span> str1 = str.substring(<span class="number">1</span>, <span class="number">9</span>);<span class="comment">//从下边1开始到下边9结束不包括下标9那一项</span></span><br><span class="line">        <span class="keyword">var</span> str2 = str.substring(<span class="number">9</span>, <span class="number">1</span>);</span><br><span class="line">        <span class="built_in">console</span>.log(str1);<span class="comment">//bcdefghi</span></span><br><span class="line">        <span class="built_in">console</span>.log(str2);<span class="comment">//bcdefghi</span></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">substr()</span><br><span class="line"></span><br><span class="line">字符串截取</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> str = <span class="string">&quot;abcdefghijklm&quot;</span>;</span><br><span class="line">        <span class="keyword">var</span> str1 = str.substr(<span class="number">2</span>, <span class="number">6</span>);<span class="comment">//从下标2开始往后数6个数</span></span><br><span class="line">        <span class="built_in">console</span>.log(str1);<span class="comment">//cdefgh</span></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">indexOf()</span><br><span class="line"></span><br><span class="line">遍历字符串</span><br><span class="line"></span><br><span class="line">查找包含第一个参数的字符串，如包含返回第一位的下标，停止查找，如没有返回 <span class="number">-1</span>。第二个参数表示从此下标开始查找。</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line"> <span class="keyword">var</span> str = <span class="string">&quot;abcdefabcjklm&quot;</span>;</span><br><span class="line">        <span class="keyword">var</span> a = str.indexOf(<span class="string">&quot;abc&quot;</span>)</span><br><span class="line">        <span class="keyword">var</span> b = str.indexOf(<span class="string">&quot;abc&quot;</span>, <span class="number">1</span>);</span><br><span class="line">        <span class="built_in">console</span>.log(a);<span class="comment">//0</span></span><br><span class="line">        <span class="built_in">console</span>.log(b);<span class="comment">//6</span></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">toUpperCase</span><br><span class="line"></span><br><span class="line">转大写</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> str = <span class="string">&quot;aAbBcCdD&quot;</span>;</span><br><span class="line">        <span class="built_in">console</span>.log(str.toUpperCase());<span class="comment">//AABBCCDD</span></span><br><span class="line">toLowerCase</span><br><span class="line"></span><br><span class="line">转小写</span><br><span class="line"></span><br><span class="line"> <span class="keyword">var</span> str = <span class="string">&quot;aAbBcCdD&quot;</span>;</span><br><span class="line">         <span class="built_in">console</span>.log(str.toLowerCase());<span class="comment">//aabbccdd</span></span><br><span class="line">replace()</span><br><span class="line"></span><br><span class="line">替换字符串</span><br><span class="line"></span><br><span class="line">只能匹配一次</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> str = <span class="string">&quot;今天天天天气好好&quot;</span>;</span><br><span class="line">        <span class="keyword">var</span> str1 = str.replace(<span class="string">&quot;天天&quot;</span>, <span class="string">&quot;**&quot;</span>);</span><br><span class="line">        <span class="built_in">console</span>.log(str1);<span class="comment">//今**天天气好好</span></span><br><span class="line">        </span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">match()</span><br><span class="line"></span><br><span class="line">查找字符串</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line"> <span class="keyword">var</span> str = <span class="string">&quot;今天天气好好&quot;</span>;</span><br><span class="line">        <span class="keyword">var</span> result = str.match(<span class="string">&quot;天天&quot;</span>);</span><br><span class="line">        <span class="built_in">console</span>.log(result);<span class="comment">//[&quot;天天&quot;, index: 1, input: &quot;今天天气好好&quot;, groups: undefined]</span></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">search()</span><br><span class="line"></span><br><span class="line">查找字符串返回下标</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> str = <span class="string">&quot;今天天气天天好好&quot;</span>;</span><br><span class="line">        <span class="keyword">var</span> result = str.search(<span class="string">&quot;天天&quot;</span>);</span><br><span class="line">        <span class="built_in">console</span>.log(result);<span class="comment">//1</span></span><br><span class="line"> startsWith  </span><br><span class="line"></span><br><span class="line">判定一个字符串是否以另一个字符串开头</span><br><span class="line"> </span><br><span class="line">复制代码</span><br><span class="line">   <span class="keyword">var</span> str = <span class="string">&quot;hello world&quot;</span>;</span><br><span class="line">    <span class="keyword">var</span> result = str.startsWith(<span class="string">&quot;he&quot;</span>);</span><br><span class="line">   <span class="built_in">console</span>.log(result)<span class="comment">//true</span></span><br><span class="line">   <span class="comment">//当为两个参数时，第二个表示开始位数。</span></span><br><span class="line">    <span class="keyword">var</span> result = str.startsWith(<span class="string">&quot;he&quot;</span>,<span class="number">1</span>);</span><br><span class="line">     <span class="built_in">console</span>.log(result)<span class="comment">//flase</span></span><br><span class="line">复制代码</span><br><span class="line">endsWith</span><br><span class="line"></span><br><span class="line">判定一个字符串是否以另一个字符串结尾</span><br><span class="line">复制代码</span><br><span class="line">  <span class="keyword">var</span> str = <span class="string">&quot;hello world&quot;</span>;</span><br><span class="line">        <span class="comment">//检测尾部</span></span><br><span class="line">        <span class="keyword">var</span> result = str.endsWith(<span class="string">&quot;world&quot;</span>);</span><br><span class="line">        <span class="built_in">console</span>.log(result);<span class="comment">//true</span></span><br><span class="line">        <span class="comment">//检测指定位置是否以指定字符结尾</span></span><br><span class="line">        <span class="keyword">var</span> result1 = str.endsWith(<span class="string">&quot;wo&quot;</span>, <span class="number">8</span>);</span><br><span class="line">        <span class="built_in">console</span>.log(result1)<span class="comment">//true</span></span><br><span class="line">复制代码</span><br><span class="line">includes</span><br><span class="line"></span><br><span class="line">检测是否包含指定字符串</span><br><span class="line"></span><br><span class="line"> <span class="keyword">var</span> str = <span class="string">&quot;hello world&quot;</span>;</span><br><span class="line">        <span class="keyword">var</span> result = str.includes(<span class="string">&quot;o&quot;</span>);</span><br><span class="line">        <span class="built_in">console</span>.log(result);<span class="comment">//true</span></span><br><span class="line">        <span class="keyword">var</span> result1 = str.includes(<span class="string">&quot;o&quot;</span>, <span class="number">8</span>);</span><br><span class="line">        <span class="built_in">console</span>.log(result1);<span class="comment">//false</span></span><br><span class="line"> repeat</span><br><span class="line"></span><br><span class="line"> 重复字符串</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> str =<span class="string">&quot;haha&quot;</span></span><br><span class="line">    <span class="keyword">var</span> str1 = str.repeat(<span class="number">3</span>);</span><br><span class="line">    <span class="built_in">console</span>.log(str1)<span class="comment">//hahahahahaha</span></span><br></pre></td></tr></table></figure>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+    
+<nav id="article-nav">
+    
+        <a href="/wiki/%E5%B7%A5%E5%85%B7-git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Newer</strong>
+            <div class="article-nav-title">
+                
+                    git常用命令
+                
+            </div>
+        </a>
+    
+    
+</nav>
+
+
+
+
+
+    
+    
+
+
+
+
+<!-- baidu url auto push script -->
+<script type="text/javascript">
+    !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=window.location.href,o=document.referrer;if(!e.test(r)){var n="//api.share.baidu.com/s.gif";o?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var t=new Image;t.src=n}}(window);
+</script>     
+</section>
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            John Doe &copy; 2020 
+            <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/80x15.png" /></a>
+            <br> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme - <a target="_blank" rel="noopener" href="https://github.com/zthxxx/hexo-theme-Wikitten">wikitten</a>
+            
+                <br>
+                <span id="busuanzi_container_site_pv"><i class="fa fa-eye"></i> <span id="busuanzi_value_site_pv"></span></span>
+                &nbsp;|&nbsp;
+                <span id="busuanzi_container_site_pv"><i class="fa fa-user"></i> <span id="busuanzi_value_site_uv"></span></span>
+            
+        </div>
+    </div>
+</footer>
+
+        
+
+    
+        
+<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+        <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true,
+            TeX: {
+                equationNumbers: {
+                  autoNumber: 'AMS'
+                }
+            }
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <meta charset="utf-8">
+    
+    <title>Promise | Never Too Old To Learn</title>
+    
+    
+        <meta name="keywords" content="Es6 基础  Promise" />
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="PromisePromise 对象的状态和值一个Promise对象可能处于如下三种状态，PromiseStatus: pending | resolved | rejected下面分别介绍这三种状态。 pendingpending,”行将发生的”。相当于是一个初始状态。创建Promise对象时，且没有调用ok或者是err方法，相当于是初始状态。这个初始状态会随着你调用ok，或者是error函数而切">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Promise">
+<meta property="og:url" content="http://yoursite.com/wiki/Es6-Promise/index.html">
+<meta property="og:site_name" content="Never Too Old To Learn">
+<meta property="og:description" content="PromisePromise 对象的状态和值一个Promise对象可能处于如下三种状态，PromiseStatus: pending | resolved | rejected下面分别介绍这三种状态。 pendingpending,”行将发生的”。相当于是一个初始状态。创建Promise对象时，且没有调用ok或者是err方法，相当于是初始状态。这个初始状态会随着你调用ok，或者是error函数而切">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2018-03-28T16:00:00.000Z">
+<meta property="article:modified_time" content="2020-08-05T08:57:42.107Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="Es6 基础  Promise">
+<meta name="twitter:card" content="summary">
+    
+
+    
+        <link rel="alternate" href="/atom.xml" title="Never Too Old To Learn" type="application/atom+xml" />
+    
+
+    
+        <link rel="icon" href="/favicon.ico" />
+    
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/libs/open-sans/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+<script src="/libs/jquery/2.1.3/jquery.min.js"></script>
+
+    
+<script src="/libs/jquery/plugins/cookie/1.4.1/jquery.cookie.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+    
+    
+
+
+    
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+<meta name="generator" content="Hexo 5.0.0"></head>
+
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
+                
+                <span class="site-title">Never Too Old To Learn</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/">首页</a>
+                
+                    <a class="main-nav-link" href="/archives">归档</a>
+                
+                    <a class="main-nav-link" href="/categories">分类</a>
+                
+                    <a class="main-nav-link" href="/tags">标签</a>
+                
+                    <a class="main-nav-link" href="/about">关于</a>
+                
+            </nav>
+            
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/">首页</a></td>
+                
+                    <td><a class="main-nav-link" href="/archives">归档</a></td>
+                
+                    <td><a class="main-nav-link" href="/categories">分类</a></td>
+                
+                    <td><a class="main-nav-link" href="/tags">标签</a></td>
+                
+                    <td><a class="main-nav-link" href="/about">关于</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            
+            
+                <aside id="sidebar">
+   
+        
+    <div class="widget-wrap" id='categories'>
+        <h3 class="widget-title">
+            <span>categories</span>
+            &nbsp;
+            <a id='allExpand' href="#">
+                <i class="fa fa-angle-double-down fa-2x"></i>
+            </a>
+        </h3>
+        
+        
+        
+         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            CSS
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            基础
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/CSS--%E5%9F%BA%E7%A1%80/">CSS基础</a></li>  <li class="file"><a href="/wiki/CSS-%E8%A1%8C%E9%AB%98/">CSS行高设置</a></li>  <li class="file"><a href="/wiki/CSS-%E5%B0%8F%E6%A1%88%E4%BE%8B/">CSS案例</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory open">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
+                            &nbsp;
+                            Es6
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory open">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder-open"></i>
+                            &nbsp;
+                            基础
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Es6-%E5%9B%9E%E8%B0%83%E5%9C%B0%E7%8B%B1/">回调地狱</a></li>  <li class="file active"><a href="/wiki/Es6-Promise/">Promise</a></li>  <li class="file"><a href="/wiki/Es6-%E6%9C%AC%E5%9C%B0%E5%AD%98%E5%82%A8%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF/">本地存储使用场景</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            JavaScript
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            基础
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/JavaScript-%E6%95%B0%E6%8D%AE%E5%9F%BA%E7%A1%80/">JavaScript-基础</a></li>  <li class="file"><a href="/wiki/JavaScript-this/">JavaScript-this</a></li>  <li class="file"><a href="/wiki/JavaScript-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/">JavaScript-面向对象</a></li>  <li class="file"><a href="/wiki/JavaScript-%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0%E4%B8%8E%E6%99%AE%E9%80%9A%E5%87%BD%E6%95%B0%E7%9A%84%E5%8C%BA%E5%88%AB/">JavaScript-箭头函数与普通函数的区别</a></li>  <li class="file"><a href="/wiki/JavaScript-%E9%97%AD%E5%8C%85/">JavaScript-闭包</a></li>  <li class="file"><a href="/wiki/Jquery%E5%92%8Cvue%E5%8C%BA%E5%88%AB/">Jquery和vue区别</a></li>  <li class="file"><a href="/wiki/JavaScript-%E8%B7%A8%E5%9F%9F/">JavaScript-跨域</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Linux
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            命令
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Linux-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">linux-常用命令</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            PHP
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            基础
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/PHP-%E5%9F%BA%E7%A1%80/">php基础</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            框架
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Laravel
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/PHP-Laravel%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">Laravel常用命令</a></li>  <li class="file"><a href="/wiki/PHP-Laravel-CURD%E5%B0%8F%E7%BB%93/">Laravel-CURD小结</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            Vue
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            基础
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Vue%E6%8F%92%E6%A7%BD%E8%AF%A6%E8%A7%A3/">Vue插槽详解</a></li>  <li class="file"><a href="/wiki/vue%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/">Vue生命周期</a></li>  <li class="file"><a href="/wiki/vue%E4%B8%AD%E7%9A%84data%E4%B8%BA%E4%BB%80%E4%B9%88%E5%BF%85%E9%A1%BB%E6%98%AF%E4%B8%80%E4%B8%AA%E5%87%BD%E6%95%B0/">vue中的data为什么必须是一个函数</a></li>  <li class="file"><a href="/wiki/vuex%E7%9A%84%E4%BD%BF%E7%94%A8/">vuex的使用</a></li>  <li class="file"><a href="/wiki/vue%E7%BB%84%E4%BB%B6%E4%BC%A0%E5%80%BC/">vue组件传值</a></li>  <li class="file"><a href="/wiki/vue%E8%B7%AF%E7%94%B1%E7%9A%84%E8%B7%B3%E8%BD%AC%E6%96%B9%E5%BC%8F/">vue路由的跳转方式</a></li>  <li class="file"><a href="/wiki/vue%E8%B7%A8%E5%9F%9F%E8%AF%B7%E6%B1%82%E6%8E%A5%E5%8F%A3%E4%BB%A3%E7%90%86%E6%96%B9%E5%BC%8F%E6%80%8E%E4%B9%88%E4%BD%BF%E7%94%A8%EF%BC%9F/">怎么使用？vue跨域请求接口代理方式</a></li>  <li class="file"><a href="/wiki/vue-loader%E5%B9%B2%E4%BB%80%E4%B9%88%E7%94%A8%E7%9A%84/">vue-loader干什么用的</a></li>  <li class="file"><a href="/wiki/vue-cli3.0%E5%92%8Cvue-cli2.0%E9%A1%B9%E7%9B%AE%E6%9E%84%E5%BB%BA%E3%80%81%E8%BF%90%E8%A1%8C%E3%80%81%E7%BC%96%E8%AF%91%E5%91%BD%E4%BB%A4%E5%8C%BA%E5%88%AB/">vue-cli3.0和vue-cli2.0项目构建、运行、编译命令区别</a></li>  <li class="file"><a href="/wiki/vue%E4%B8%ADkeep-alive%E7%9A%84%E4%BD%9C%E7%94%A8/">vue中keep-alive的作用</a></li>  <li class="file"><a href="/wiki/vue%E4%B8%ADwatch%E5%92%8Ccomputed/">vue中watch和computed</a></li>  <li class="file"><a href="/wiki/vue%E4%B9%8Bv-if%E4%B8%8Ev-show%E5%8C%BA%E5%88%AB/">v-if与v-show</a></li>  <li class="file"><a href="/wiki/vue-cli%E9%A1%B9%E7%9B%AE%E4%B8%ADsrc%E7%9B%AE%E5%BD%95%E6%AF%8F%E4%B8%AA%E6%96%87%E4%BB%B6%E5%A4%B9%E5%92%8C%E6%96%87%E4%BB%B6%E7%9A%84%E7%94%A8%E6%B3%95/">vue-cli项目中src目录每个文件夹和文件的用法</a></li>  <li class="file"><a href="/wiki/vue%E4%B8%AD-route%E5%92%8C-router%E7%9A%84%E5%8C%BA%E5%88%AB/">vue中$route和$router的区别</a></li>  <li class="file"><a href="/wiki/vue%E4%B8%AD%E6%8F%92%E4%BB%B6%E4%BD%BF%E7%94%A8/">vue中插件使用</a></li>  <li class="file"><a href="/wiki/vue%E5%8F%8C%E5%90%91%E7%BB%91%E5%AE%9A%E5%8E%9F%E7%90%86/">vue双向绑定原理</a></li>  <li class="file"><a href="/wiki/vue-router%E5%8A%A8%E6%80%81%E8%B7%AF%E7%94%B1%E7%9A%84%E5%AE%9A%E4%B9%89/">vue-router动态路由的定义</a></li>  <li class="file"><a href="/wiki/vue%E4%B8%ADNextTick%E6%98%AF%E5%81%9A%E4%BB%80%E4%B9%88%E7%9A%84/">vue中NextTick是做什么的</a></li>  <li class="file"><a href="/wiki/vue%E9%A1%B9%E7%9B%AE%E6%98%AF%E6%89%93%E5%8C%85%E5%8F%8A%E7%94%9F%E6%88%90%E7%9A%84%E6%96%87%E4%BB%B6/">vue项目是打包及生成的文件</a></li>  <li class="file"><a href="/wiki/vue%E5%8D%95%E9%A1%B5%E9%9D%A2%E5%BA%94%E7%94%A8%E7%9A%84%E4%BC%98%E7%BC%BA%E7%82%B9/">vue单页面应用的优缺点</a></li>  <li class="file"><a href="/wiki/vue%E7%9A%84%E6%A0%B7%E5%BC%8F%E7%A9%BF%E9%80%8F/">vue的样式穿透</a></li>  <li class="file"><a href="/wiki/vue%E4%B8%ADkey%E7%9A%84%E4%BD%9C%E7%94%A8%E6%80%BB%E7%BB%93/">vue中key的作用总结</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            mysql
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            基础
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/Mysql-%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5%E5%A4%B1%E8%B4%A5%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/">Mysql远程连接失败解决方案</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            优化
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/%E4%BC%98%E5%8C%96-%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/">优化-性能优化</a></li>  </ul> 
+                    </li> 
+                    
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            工具
+                        </a>
+                         <ul class="unstyled" id="tree" > 
+                    <li class="directory">
+                        <a href="#" data-role="directory">
+                            <i class="fa fa-folder"></i>
+                            &nbsp;
+                            git
+                        </a>
+                         <ul class="unstyled" id="tree" >  <li class="file"><a href="/wiki/%E5%B7%A5%E5%85%B7-git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">git常用命令</a></li>  </ul> 
+                    </li> 
+                     </ul> 
+                    </li> 
+                     <li class="file"><a href="/wiki/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E7%BD%91%E7%BB%9C/">计算机原理与网络</a></li>  </ul> 
+    </div>
+    <script>
+        $(document).ready(function() {
+            var iconFolderOpenClass  = 'fa-folder-open';
+            var iconFolderCloseClass = 'fa-folder';
+            var iconAllExpandClass = 'fa-angle-double-down';
+            var iconAllPackClass = 'fa-angle-double-up';
+            // Handle directory-tree expansion:
+            // 左键单独展开目录
+            $(document).on('click', '#categories a[data-role="directory"]', function (event) {
+                event.preventDefault();
+
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconFolderOpenClass);
+                var subtree = $(this).siblings('ul');
+                icon.removeClass(iconFolderOpenClass).removeClass(iconFolderCloseClass);
+                if (expanded) {
+                    if (typeof subtree != 'undefined') {
+                        subtree.slideUp({ duration: 100 });
+                    }
+                    icon.addClass(iconFolderCloseClass);
+                } else {
+                    if (typeof subtree != 'undefined') {
+                        subtree.slideDown({ duration: 100 });
+                    }
+                    icon.addClass(iconFolderOpenClass);
+                }
+            });
+            // 右键展开下属所有目录
+            $('#categories a[data-role="directory"]').bind("contextmenu", function(event){
+                event.preventDefault();
+                
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconFolderOpenClass);
+                var listNode = $(this).siblings('ul');
+                var subtrees = $.merge(listNode.find('li ul'), listNode);
+                var icons = $.merge(listNode.find('.fa'), icon);
+                icons.removeClass(iconFolderOpenClass).removeClass(iconFolderCloseClass);
+                if(expanded) {
+                    subtrees.slideUp({ duration: 100 });
+                    icons.addClass(iconFolderCloseClass);
+                } else {
+                    subtrees.slideDown({ duration: 100 });
+                    icons.addClass(iconFolderOpenClass);
+                }
+            })
+            // 展开关闭所有目录按钮
+            $(document).on('click', '#allExpand', function (event) {
+                event.preventDefault();
+                
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconAllExpandClass);
+                icon.removeClass(iconAllExpandClass).removeClass(iconAllPackClass);
+                if(expanded) {
+                    $('#sidebar .fa.fa-folder').removeClass('fa-folder').addClass('fa-folder-open')
+                    $('#categories li ul').slideDown({ duration: 100 });
+                    icon.addClass(iconAllPackClass);
+                } else {
+                    $('#sidebar .fa.fa-folder-open').removeClass('fa-folder-open').addClass('fa-folder')
+                    $('#categories li ul').slideUp({ duration: 100 });
+                    icon.addClass(iconAllExpandClass);
+                }
+            });  
+        });
+    </script>
+
+    
+    <div id="toTop" class="fa fa-angle-up"></div>
+</aside>
+            
+            <section id="main"><article id="post-Es6-Promise" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Es6/">Es6</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Es6/%E5%9F%BA%E7%A1%80/">基础</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="/tags/Es6-%E5%9F%BA%E7%A1%80-Promise/" rel="tag">Es6 基础  Promise</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/wiki/Es6-Promise/">
+            <time datetime="2018-03-28T16:00:00.000Z" itemprop="datePublished">2018-03-29</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/zthxxx/Wiki-site/raw/writing/source/_posts/Es6-Promise.md'> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/zthxxx/Wiki-site/edit/writing/source/_posts/Es6-Promise.md'> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/zthxxx/Wiki-site/commits/writing/source/_posts/Es6-Promise.md'> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 class="article-title" itemprop="name">
+            Promise
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                <div id="toc" class="toc-article">
+                <strong class="toc-title">Catalogue</strong>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Promise"><span class="toc-number">1.</span> <span class="toc-text">Promise</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Promise-%E5%AF%B9%E8%B1%A1%E7%9A%84%E7%8A%B6%E6%80%81%E5%92%8C%E5%80%BC"><span class="toc-number"></span> <span class="toc-text">Promise 对象的状态和值</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#pending"><span class="toc-number">1.</span> <span class="toc-text">pending</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#resolved"><span class="toc-number">2.</span> <span class="toc-text">resolved</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#rejected"><span class="toc-number">3.</span> <span class="toc-text">rejected</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89%E7%A7%8D%E7%8A%B6%E6%80%81%E7%9A%84%E7%90%86%E8%A7%A3"><span class="toc-number">4.</span> <span class="toc-text">三种状态的理解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#promise%E7%9A%84%E5%80%BCpromisevalue"><span class="toc-number">5.</span> <span class="toc-text">promise的值promisevalue</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Promise%E5%AE%9E%E4%BE%8B%E7%9A%84%E6%96%B9%E6%B3%95"><span class="toc-number"></span> <span class="toc-text">Promise实例的方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#then-%E6%96%B9%E6%B3%95"><span class="toc-number"></span> <span class="toc-text">then()方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%BC%E5%BC%8F"><span class="toc-number">1.</span> <span class="toc-text">格式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B0%83%E7%94%A8%E9%80%BB%E8%BE%91"><span class="toc-number">2.</span> <span class="toc-text">调用逻辑</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E5%8F%82%E7%9A%84%E5%80%BC"><span class="toc-number">3.</span> <span class="toc-text">实参的值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%94%E5%9B%9E%E5%80%BC"><span class="toc-number">4.</span> <span class="toc-text">返回值</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#catch-%E6%96%B9%E6%B3%95"><span class="toc-number"></span> <span class="toc-text">catch()方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#fillay-%E6%96%B9%E6%B3%95"><span class="toc-number"></span> <span class="toc-text">fillay()方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8promise%E6%94%B9%E9%80%A0%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0"><span class="toc-number"></span> <span class="toc-text">使用promise改造回调函数</span></a>
+                </div>
+            
+        
+        
+            <h3 id="Promise"><a href="#Promise" class="headerlink" title="Promise"></a>Promise</h3><h2 id="Promise-对象的状态和值"><a href="#Promise-对象的状态和值" class="headerlink" title="Promise 对象的状态和值"></a>Promise 对象的状态和值</h2><p>一个Promise对象可能处于如下<code>三种状态</code>，<br>PromiseStatus: pending | resolved | rejected<br>下面分别介绍这三种状态。</p>
+<h3 id="pending"><a href="#pending" class="headerlink" title="pending"></a><code>pending</code></h3><p>pending,”行将发生的”。相当于是一个初始状态。<br>创建Promise对象时，且没有调用ok或者是err方法，相当于是初始状态。<br>这个初始状态会随着你调用ok，<br>或者是error函数而切换到另一种状态。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> p = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">ok,err</span>)=&gt;</span>&#123; <span class="built_in">console</span>.info(<span class="string">&#x27;发呆.....&#x27;</span> )&#125;)</span><br><span class="line"><span class="built_in">console</span>.dir(p)</span><br></pre></td></tr></table></figure>
+
+<h3 id="resolved"><a href="#resolved" class="headerlink" title="resolved"></a><code>resolved</code></h3><p>创建Promise对象时，在实参函数中调用了ok方法。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> p = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">ok,err</span>)=&gt;</span>&#123; <span class="built_in">console</span>.info(<span class="string">&#x27;发呆.....&#x27;</span> ); ok();&#125;)</span><br><span class="line"><span class="built_in">console</span>.dir(p)</span><br></pre></td></tr></table></figure>
+
+<p>注意，上面的ok和err只是一个形参名字而已，我们在实参函数中主动调用了第一个形参。</p>
+<h3 id="rejected"><a href="#rejected" class="headerlink" title="rejected"></a><code>rejected</code></h3><p>创建Promise对象时，调用error方法。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> p = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">ok,err</span>)=&gt;</span>&#123; <span class="built_in">console</span>.info(<span class="string">&#x27;发呆.....&#x27;</span> ); err()&#125;)</span><br><span class="line"><span class="built_in">console</span>.dir(p)</span><br></pre></td></tr></table></figure>
+
+<h3 id="三种状态的理解"><a href="#三种状态的理解" class="headerlink" title="三种状态的理解"></a>三种状态的理解</h3><ul>
+<li><p>状态是可转化</p>
+<p>最初创建promise对象时，默认状态是pending，如果在函数体内部调用了第一个参数对应的函数，<br>则状态变成了resolved；如果调用了第二个参数对应的函数，则状态变成了rejected。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pending -----ok()    --&gt; resolved;</span><br><span class="line">pending -----error()---&gt; rejected ;</span><br></pre></td></tr></table></figure>
+
+<p>上面使用的ok,error其实只是形参名字而已，在更多的场合下，<br>我们会用<code>resolve</code>和<code>reject</code>来表示。如下：</p>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> p = <span class="keyword">new</span> <span class="built_in">Promise</span>( <span class="function">(<span class="params">resolve,reject</span>) =&gt;</span> &#123; &#125; )</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>状态转换是不可逆的。一旦从pending —&gt; resolved（或者是rejected），<br>就不可能再回到pending。也不能由resolved变成rejected，或者反过来。 </li>
+</ul>
+<h3 id="promise的值promisevalue"><a href="#promise的值promisevalue" class="headerlink" title="promise的值promisevalue"></a>promise的值promisevalue</h3><p>一个promise对象除了状态之外，还有promsievalue，在构造器中，这个值在调用resolve和reject方法时，自动传入。</p>
+<p>例如：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> p = <span class="keyword">new</span> <span class="built_in">Promise</span>( <span class="function">(<span class="params">resolve,reject</span>) =&gt;</span> &#123; resolve(<span class="number">123</span>); &#125; );</span><br><span class="line"><span class="comment">//  此时，prommise对象p的状态是 resolved，值是123。</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> p = <span class="keyword">new</span> <span class="built_in">Promise</span>( <span class="function">(<span class="params">resolve,reject</span>) =&gt;</span> &#123; reject(<span class="number">1</span>); &#125; );</span><br><span class="line"><span class="comment">//  此时，prommise对象p的状态是 rejected，值是1。 </span></span><br></pre></td></tr></table></figure>
+
+<p>单独来看promiseValue似乎没有什么意义，它的使用场景在于结合promise对象的实例方法一起来用来。</p>
+<h2 id="Promise实例的方法"><a href="#Promise实例的方法" class="headerlink" title="Promise实例的方法"></a>Promise实例的方法</h2><p>在js中，对象会从它的构造器的原型对象中继承方法。例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var arr &#x3D; new Array();</span><br><span class="line">arr.push(); </span><br></pre></td></tr></table></figure>
+
+<p>上面的push方法其实是Array.protoType中的属性。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">arr.push &#x3D;&#x3D;&#x3D; Array.protoType.push ; &#x2F;&#x2F; true</span><br></pre></td></tr></table></figure>
+
+<p>同样的道理，一个promise对象也会从Promise.prototype中得方法。</p>
+<ul>
+<li>then()</li>
+<li>catch()</li>
+<li>finally()</li>
+</ul>
+<h2 id="then-方法"><a href="#then-方法" class="headerlink" title="then()方法"></a>then()方法</h2><p>then方法的作用是为Promise对象添加<strong>状态改变</strong>时的回调函数。</p>
+<ul>
+<li>参数</li>
+<li>返回值</li>
+</ul>
+<h3 id="格式"><a href="#格式" class="headerlink" title="格式"></a>格式</h3><p>它可以写两个参数，如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">promise对象.then(函数<span class="number">1</span>，函数<span class="number">2</span>)</span><br></pre></td></tr></table></figure>
+
+<p>它的第二个参数是可选的，即可以只写一个参数。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">promise对象.then(函数1)</span><br></pre></td></tr></table></figure>
+
+<p>它的两个参数都是函数。第一个参数是Resolved状态的回调函数，<br>第二个参数是Reject状态的回调函数。</p>
+<h3 id="调用逻辑"><a href="#调用逻辑" class="headerlink" title="调用逻辑"></a>调用逻辑</h3><p>它的两个参数都是函数。它们的执行逻辑是:</p>
+<ul>
+<li>如果promise对象的状态是resolved，<br>则<code>promisec对象.then()</code>会自动调用第一个函数; </li>
+<li>如果promise对象的状态是rejected，则<code>promisec对象.then()</code>会自动调用第二个函数，<br>如果此时then方法并没有设置第二个参数，就会报错; 这种情况的处理方法在后面介绍</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> p = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve,reject</span>)=&gt;</span>&#123;</span><br><span class="line">   resolve();</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">p.then(<span class="function">()=&gt;</span>&#123;<span class="built_in">console</span>.info(<span class="string">&quot;then,成功&quot;</span>)&#125;, <span class="function">()=&gt;</span>&#123;<span class="built_in">console</span>.info(<span class="string">&quot;then,失败&quot;</span>)&#125;)</span><br><span class="line"><span class="comment">//--------------------------------------------------------------------------------------</span></span><br><span class="line"><span class="keyword">var</span> p = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve,reject</span>)=&gt;</span>&#123;</span><br><span class="line">   reject();</span><br><span class="line">&#125;)</span><br><span class="line">p.then(<span class="function">()=&gt;</span>&#123;<span class="built_in">console</span>.info(<span class="string">&quot;then,成功&quot;</span>)&#125;, <span class="function">()=&gt;</span>&#123;<span class="built_in">console</span>.info(<span class="string">&quot;then,失败&quot;</span>)&#125;)</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="实参的值"><a href="#实参的值" class="headerlink" title="实参的值"></a>实参的值</h3><p>then的参数是两个回调函数，分别在p对象是resolve和reject自动调用。<br>在调用它们时，会自动把promise对象的promisevalue当作实参给它们传递进去。</p>
+<p>示例代码1</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> p = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve,reject</span>)=&gt;</span>&#123;</span><br><span class="line">    resolve(<span class="number">1</span>)<span class="comment">//主动调用resolve，并传入</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 此时，P的状态是resolved，且值promiseValue 是1.</span></span><br><span class="line"></span><br><span class="line">p.then(<span class="function">(<span class="params">res</span>)=&gt;</span>&#123;</span><br><span class="line"><span class="comment">// 因为p的状态是resolved，所以自动执行then的第一个参数，并且把promisevalue传进来。</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&quot;then,ok&quot;</span>,res)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>示例代码2</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> p = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve,reject</span>)=&gt;</span>&#123;</span><br><span class="line">    reject(<span class="number">2</span>)<span class="comment">//主动调用reject，并传入实参</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 此时，P的状态是rejected，且值promiseValue 是2.</span></span><br><span class="line"></span><br><span class="line">p.then(<span class="function">(<span class="params">res</span>)=&gt;</span>&#123;</span><br><span class="line">    <span class="comment">// 因为p的状态是resolved，所以这句代码不会执行。</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&quot;then,ok&quot;</span>,res)</span><br><span class="line">&#125;,<span class="function">(<span class="params">err</span>)=&gt;</span>&#123;</span><br><span class="line">    <span class="comment">// 因为p的状态是rejected，所以自动执行then的第二个参数，并且把promisevalue传进来。</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&quot;then,err&quot;</span>,err)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>then()方法的返回值也是一个promise对象，但是，它的返回值是一个新的promise对象<br>（与调用then方法的并不是同一个对象），所以它支持链式写法。</p>
+<p>即;</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> p1 = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">()=&gt;</span>&#123;&#125;);</span><br><span class="line"><span class="keyword">var</span> p2 = p1.then(); <span class="comment">// p2也是一个promise对象。</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(p1 === p2); <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> p1 = <span class="keyword">new</span> <span class="built_in">Promise</span>( <span class="function">(<span class="params">resolve,reject</span>) =&gt;</span> &#123; </span><br><span class="line">    <span class="comment">// 做一些事情，</span></span><br><span class="line">    <span class="comment">// 根据情况，去执行resolved或者是rejected。 </span></span><br><span class="line">    reject()</span><br><span class="line">&#125;)</span><br><span class="line">f_ok = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123; <span class="built_in">console</span>.info(<span class="string">&quot;当前的promise 的状态是ok的 &quot;</span>)&#125;</span><br><span class="line">f_err = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123; <span class="built_in">console</span>.info(<span class="string">&quot;当前的promise的状态是error的&quot;</span>)&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> p2 = p1.then(f_ok,f_err)</span><br><span class="line"><span class="built_in">console</span>.info(p2 instance <span class="keyword">of</span> <span class="built_in">Promise</span>); <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.info(p1 === p2);              <span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.info(<span class="string">&quot;p1&quot;</span>,p1)</span><br><span class="line"><span class="built_in">console</span>.info(<span class="string">&quot;p2&quot;</span>,p2)</span><br></pre></td></tr></table></figure>
+
+<p>如上代码可以说明p1.then()的结果是一个与p1不同的promise对象。换句话说，<br>then()会封装一个全新的promise对象p2。</p>
+<p>那既然 p2也是一个promise对象，那么，p2的状态（promiseStatus）和<br>值(promiseValue)分别是什么？</p>
+<p>p2的状态及promiseValue按如下规则来确定</p>
+<ul>
+<li>如果p1的状态是pending,则p2的状态也是pending。</li>
+<li>如果p1的状态是resolved，then()会去执行f_ok，则p2的状态由f_ok的返回值决定。<ul>
+<li>如果f_ok返回值不是promise对象，则p2的状态是resolved，且p2的promiseValue就是f_ok函数的return值。</li>
+<li>如果f_ok返回值是一个promise对象，则p2的状态及promiseValue以这个promise对象为准。</li>
+</ul>
+</li>
+<li>如果p1的状态是rejected，then()会去执行f_err，则p2的状态由f_err的返回值决定。<ul>
+<li>如果f_err返回值不是promise对象，则p2的状态是resolved，且p2的promiseValue就是f_err函数的return值。</li>
+<li>如果f_err返回值是一个promise对象，则p2的状态及promiseValue以这个promise对象为准。</li>
+</ul>
+</li>
+</ul>
+<h2 id="catch-方法"><a href="#catch-方法" class="headerlink" title="catch()方法"></a>catch()方法</h2><p>Promise.prototype.catch是.then(null, reject)的别名，用于指定发生错误时的回调函数 。比较经典的用法是这样：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="built_in">Promise</span>((resolve,reject)&#123;</span><br><span class="line"></span><br><span class="line">&#125;).then(<span class="function"><span class="keyword">function</span>(<span class="params">result</span>)</span>&#123;</span><br><span class="line"> <span class="comment">// 如果promise对象的状态是resolved的，就会到这里来，并且result会接收promiseValue的值</span></span><br><span class="line">&#125;).catch(<span class="function"><span class="keyword">function</span>(<span class="params">err</span>)</span>&#123;</span><br><span class="line"> <span class="comment">// 如果promise对象的状态是rejected的，就会到这里来，并且err会接收promiseValue的值</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">/// 上面的代码如何拆分来写的话，等价于：</span></span><br><span class="line"><span class="keyword">var</span> p1 = <span class="keyword">new</span> <span class="built_in">Promise</span>((resolve,reject)&#123;</span><br><span class="line"></span><br><span class="line">&#125;);</span><br><span class="line"><span class="keyword">var</span> p2 = p1.then(<span class="function"><span class="keyword">function</span>(<span class="params">result</span>)</span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;);</span><br><span class="line"><span class="keyword">var</span> p3 = p2.catch(<span class="function"><span class="keyword">function</span>(<span class="params">err</span>)</span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h2 id="fillay-方法"><a href="#fillay-方法" class="headerlink" title="fillay()方法"></a>fillay()方法</h2><p>无论状态如何，都会执行</p>
+<p>下面我们来看一下<code>promise.finally(f);</code>，<br>（1）<code>f</code>是一个无参函数，不论该<code>promise</code>最终是fulfilled还是rejected。<br>（2）<code>finally</code>不改变<code>promise</code>的状态。</p>
+<h2 id="使用promise改造回调函数"><a href="#使用promise改造回调函数" class="headerlink" title="使用promise改造回调函数"></a>使用promise改造回调函数</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">把一个异步的带回调函数的功能改写成promise。</span><br><span class="line"><span class="number">1.</span> 新建一个空模板</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fnname</span>(<span class="params">XXXXX</span>)</span>&#123;</span><br><span class="line"> <span class="keyword">var</span> p = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve,reject</span>)=&gt;</span>&#123;</span><br><span class="line">     <span class="comment">// 这里写具体的代码，并在某个恰当的时机去调用resolve和reject函数。</span></span><br><span class="line"> &#125;)</span><br><span class="line"></span><br><span class="line"> <span class="keyword">return</span> p;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="number">2.</span>把功能代码放入<span class="keyword">new</span> <span class="built_in">Promise</span>的构造器中,根据实际情况调用resolve,reject，并给实参</span><br><span class="line"></span><br><span class="line"><span class="number">3.</span>通过<span class="string">`fnname().then().catch()`</span> 结构来使用。</span><br></pre></td></tr></table></figure>
+
+
+
+<p>基本代码</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">&#x27;fs&#x27;</span>);</span><br><span class="line"></span><br><span class="line">fs.readFile(<span class="string">&quot;1.txt&quot;</span>, <span class="string">&#x27;utf8&#x27;</span>, <span class="function">(<span class="params">err, data</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (err) &#123;</span><br><span class="line">        reject(err);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        resolve(data);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>封装方法</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">&#x27;fs&#x27;</span>);</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">readFile</span>(<span class="params">filename</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> p = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">    fs.readFile(filename, <span class="string">&#x27;utf8&#x27;</span>, <span class="function">(<span class="params">err, data</span>) =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">if</span> (err) &#123;</span><br><span class="line">        reject(err);</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        resolve(data);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;);</span><br><span class="line">  <span class="keyword">return</span> p;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">readFile(<span class="string">&#x27;./server.js1&#x27;</span>)</span><br><span class="line">  .then(<span class="function"><span class="params">rs</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(rs);</span><br><span class="line">  &#125;)</span><br><span class="line">  .catch(<span class="function"><span class="params">err</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;err&#x27;</span>, err);</span><br><span class="line">  &#125;); </span><br></pre></td></tr></table></figure>
+
+
+
+<p>面试题</p>
+<p>写代码，完成如下功能：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sleep</span>(<span class="params">time</span>)</span>&#123;</span><br><span class="line">    <span class="comment">// 请写出你的代码</span></span><br><span class="line">    <span class="keyword">var</span> p = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span>(<span class="params">resolve,reject</span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="number">3</span>);</span><br><span class="line">        <span class="comment">// 异步操作，根据执行结果，决定是否调用 resolve,reject</span></span><br><span class="line">        <span class="built_in">setTimeout</span>(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            resolve()</span><br><span class="line">        &#125;, time)</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> p;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">sleep(<span class="number">2000</span>).then(<span class="function">()=&gt;</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&quot;4.其它工作&quot;</span>)</span><br><span class="line">&#125;)</span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">2</span>);</span><br></pre></td></tr></table></figure>
+
+<p>sleep 的功用与settimeout一样：就是等2000毫秒之后再执行。</p>
+
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+    
+<nav id="article-nav">
+    
+        <a href="/wiki/Es6-%E6%9C%AC%E5%9C%B0%E5%AD%98%E5%82%A8%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Newer</strong>
+            <div class="article-nav-title">
+                
+                    本地存储使用场景
+                
+            </div>
+        </a>
+    
+    
+        <a href="/wiki/JavaScript-this/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Older</strong>
+            <div class="article-nav-title">JavaScript-this</div>
+        </a>
+    
+</nav>
+
+
+
+
+
+    
+    
+
+
+
+
+<!-- baidu url auto push script -->
+<script type="text/javascript">
+    !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=window.location.href,o=document.referrer;if(!e.test(r)){var n="//api.share.baidu.com/s.gif";o?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var t=new Image;t.src=n}}(window);
+</script>     
+</section>
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            John Doe &copy; 2020 
+            <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/80x15.png" /></a>
+            <br> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme - <a target="_blank" rel="noopener" href="https://github.com/zthxxx/hexo-theme-Wikitten">wikitten</a>
+            
+                <br>
+                <span id="busuanzi_container_site_pv"><i class="fa fa-eye"></i> <span id="busuanzi_value_site_pv"></span></span>
+                &nbsp;|&nbsp;
+                <span id="busuanzi_container_site_pv"><i class="fa fa-user"></i> <span id="busuanzi_value_site_uv"></span></span>
+            
+        </div>
+    </div>
+</footer>
+
+        
+
+    
+        
+<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+    
+        <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true,
+            TeX: {
+                equationNumbers: {
+                  autoNumber: 'AMS'
+                }
+            }
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+    </div>
+</body>
+</html>

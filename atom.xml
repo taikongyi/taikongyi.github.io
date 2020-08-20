@@ -1,0 +1,581 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Never Too Old To Learn</title>
+  
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://yoursite.com/"/>
+  <updated>2020-08-09T05:03:36.077Z</updated>
+  <id>http://yoursite.com/</id>
+  
+  <author>
+    <name>John Doe</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>计算机原理与网络</title>
+    <link href="http://yoursite.com/wiki/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E7%BD%91%E7%BB%9C/"/>
+    <id>http://yoursite.com/wiki/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E7%BD%91%E7%BB%9C/</id>
+    <published>2020-08-09T05:03:36.000Z</published>
+    <updated>2020-08-09T05:03:36.077Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><blockquote><ul><li><a href></a></li><li><a href></a></li></ul></blockquote>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;参考资料&quot;&gt;&lt;a href=&quot;#参考资料&quot; class=&quot;headerlink&quot; title=&quot;参考资料&quot;&gt;&lt;/a&gt;参考资料&lt;/h2&gt;&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/u
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>优化-性能优化</title>
+    <link href="http://yoursite.com/wiki/%E4%BC%98%E5%8C%96-%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/"/>
+    <id>http://yoursite.com/wiki/%E4%BC%98%E5%8C%96-%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/</id>
+    <published>2020-07-24T16:00:00.000Z</published>
+    <updated>2020-08-05T08:57:36.411Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="前端性能优化"><a href="#前端性能优化" class="headerlink" title="前端性能优化"></a>前端性能优化</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>、加载优化  </span><br><span class="line">    静态资源加载优化，cdn or oss</span><br><span class="line">    尽可能少的加载外联css、js代码，html头部，增加dsn-preftch，减少dns解析时间</span><br><span class="line">    压缩css js pic，减小体积，服务端开启gzip压缩</span><br><span class="line">    控制http请求</span><br><span class="line">    js加载脚本阻塞浏览器主线程，考虑异步， 如 <span class="keyword">async</span></span><br><span class="line">    利用好缓存，利用好http响应头缓存字段，开启静态资源缓存</span><br><span class="line">    </span><br><span class="line"><span class="number">2</span>、浏览器渲染</span><br><span class="line">    css层不要太深，避免最内层使用统配选择器</span><br><span class="line">    js脚本不要太复杂，减少js解析时间，少引用复杂的第三方脚本</span><br><span class="line">    模块按需加载，按需打包，首页仅仅加载和执行和首屏相关的脚本，其他脚本延迟加载</span><br><span class="line">    第三方包需不需 要精简</span><br><span class="line">    打包优化，code split webpack</span><br><span class="line"></span><br><span class="line"><span class="number">3</span>，缓存</span><br><span class="line">    内存  响应资源放入内存，直接读取，无需线程转换， 消耗资源</span><br><span class="line">    客户端缓存</span><br><span class="line">    HTTp缓存   catche-control与服务器进行数据协商，根据标准缓存活着更新资源</span><br><span class="line">    网络相关的缓存  一般指dns解析结果的缓存或者预连接缓存，创建一个https成本很大</span><br><span class="line">    cdn  根据用户ip地址及请求的url选择一台距离用户比较近的资源缩短路径，提升性能  </span><br><span class="line">    localstorage缓存html文档首次访问页面时，js执行完后会生成完整的html文档，缓存到localstorage里面  </span><br><span class="line"></span><br><span class="line">浏览器js占用大量时间</span><br><span class="line"></span><br><span class="line">LINUX命令将一个文件夹里面的所有文件复制到指定文件里     cp -r /root/XXX/Account/. /ftp/ZJNX</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;前端性能优化&quot;&gt;&lt;a href=&quot;#前端性能优化&quot; class=&quot;headerlink&quot; title=&quot;前端性能优化&quot;&gt;&lt;/a&gt;前端性能优化&lt;/h3&gt;&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter
+      
+    
+    </summary>
+    
+    
+      <category term="优化" scheme="http://yoursite.com/categories/%E4%BC%98%E5%8C%96/"/>
+    
+    
+      <category term="性能优化 浏览器渲染 缓存" scheme="http://yoursite.com/tags/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96-%E6%B5%8F%E8%A7%88%E5%99%A8%E6%B8%B2%E6%9F%93-%E7%BC%93%E5%AD%98/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>vue中key的作用总结</title>
+    <link href="http://yoursite.com/wiki/vue%E4%B8%ADkey%E7%9A%84%E4%BD%9C%E7%94%A8%E6%80%BB%E7%BB%93/"/>
+    <id>http://yoursite.com/wiki/vue%E4%B8%ADkey%E7%9A%84%E4%BD%9C%E7%94%A8%E6%80%BB%E7%BB%93/</id>
+    <published>2020-06-19T16:00:00.000Z</published>
+    <updated>2020-08-05T08:57:24.255Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="vue-中-key-的作用-总结："><a href="#vue-中-key-的作用-总结：" class="headerlink" title="vue 中 key 的作用 总结："></a>vue 中 key 的作用 总结：</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">key的作用主要是为了高效的更新虚拟dom 没有加key，diff默认算法的问题（虚拟dom） </span><br><span class="line"></span><br><span class="line"><span class="number">1.</span> 如果节点类型不同，直接干掉前面所有的节点，再创建并插入新的节点，不会再比较这个节点以后的子节点 </span><br><span class="line"></span><br><span class="line"><span class="number">2.</span> 如果节点类型相同，则会重新设置节点的属性，从而实现节点的更新</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;vue-中-key-的作用-总结：&quot;&gt;&lt;a href=&quot;#vue-中-key-的作用-总结：&quot; class=&quot;headerlink&quot; title=&quot;vue 中 key 的作用 总结：&quot;&gt;&lt;/a&gt;vue 中 key 的作用 总结：&lt;/h3&gt;&lt;figure class
+      
+    
+    </summary>
+    
+    
+      <category term="Vue" scheme="http://yoursite.com/categories/Vue/"/>
+    
+      <category term="基础" scheme="http://yoursite.com/categories/Vue/%E5%9F%BA%E7%A1%80/"/>
+    
+    
+      <category term="Vue key" scheme="http://yoursite.com/tags/Vue-key/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>linux-常用命令</title>
+    <link href="http://yoursite.com/wiki/Linux-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/"/>
+    <id>http://yoursite.com/wiki/Linux-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</id>
+    <published>2020-05-01T16:00:00.000Z</published>
+    <updated>2020-08-05T09:05:09.038Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="复制文件-到另一个文件夹"><a href="#复制文件-到另一个文件夹" class="headerlink" title="复制文件 到另一个文件夹"></a>复制文件 到另一个文件夹</h3><h3 id="将一个文件夹里面的所有文件复制到指定文件里"><a href="#将一个文件夹里面的所有文件复制到指定文件里" class="headerlink" title="将一个文件夹里面的所有文件复制到指定文件里"></a>将一个文件夹里面的所有文件复制到指定文件里</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp -r /root/XXX/Account/. /ftp/ZJNX</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;复制文件-到另一个文件夹&quot;&gt;&lt;a href=&quot;#复制文件-到另一个文件夹&quot; class=&quot;headerlink&quot; title=&quot;复制文件 到另一个文件夹&quot;&gt;&lt;/a&gt;复制文件 到另一个文件夹&lt;/h3&gt;&lt;h3 id=&quot;将一个文件夹里面的所有文件复制到指定文件里&quot;&gt;&lt;a
+      
+    
+    </summary>
+    
+    
+      <category term="Linux" scheme="http://yoursite.com/categories/Linux/"/>
+    
+      <category term="命令" scheme="http://yoursite.com/categories/Linux/%E5%91%BD%E4%BB%A4/"/>
+    
+    
+      <category term="linux基础 常用命令" scheme="http://yoursite.com/tags/linux%E5%9F%BA%E7%A1%80-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Laravel-CURD小结</title>
+    <link href="http://yoursite.com/wiki/PHP-Laravel-CURD%E5%B0%8F%E7%BB%93/"/>
+    <id>http://yoursite.com/wiki/PHP-Laravel-CURD%E5%B0%8F%E7%BB%93/</id>
+    <published>2020-03-02T13:35:37.000Z</published>
+    <updated>2020-08-05T09:08:04.486Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="Laravel-CURD小结"><a href="#Laravel-CURD小结" class="headerlink" title="Laravel-CURD小结"></a>Laravel-CURD小结</h3><h2 id="1-curd思路设计表格式"><a href="#1-curd思路设计表格式" class="headerlink" title="1.curd思路设计表格式"></a>1.curd思路设计表格式</h2><pre><code>文章列表  id  标题， 内容，类型（类型i的）， 简介， 作者文章类型：1新闻，2科技，3社会，4自然，5教育</code></pre><h2 id="2-建立-模型，"><a href="#2-建立-模型，" class="headerlink" title="2.建立 模型，"></a>2.建立 模型，</h2><pre><code>php artisan make:model Models\Article -a    -a 创建所有 模型 迁移表 控制器</code></pre><h2 id="3-设计数据表并迁移到数据库"><a href="#3-设计数据表并迁移到数据库" class="headerlink" title="3.设计数据表并迁移到数据库"></a>3.设计数据表并迁移到数据库</h2><pre><code> 在database/migrate   文件夹    php artisan migrate(在数据库生成一个数据表)</code></pre><h2 id="4-设计数据表的模拟数据格式，生成模拟数据"><a href="#4-设计数据表的模拟数据格式，生成模拟数据" class="headerlink" title="4.设计数据表的模拟数据格式，生成模拟数据"></a>4.设计数据表的模拟数据格式，生成模拟数据</h2><pre><code>方法一    factory =》faker    命令  php artisan tinker   factory助手函数factory(App\Models\Article::class, 5)-&gt;make();factory(App\Models\Article::class, 5)-&gt;create();方法二seeder  php artisan make:seeder ArtTypesTableSeeder 生成类  ---&gt;查询构造器填数据---&gt;填充 php artisan db:seed(执行DatabaseSeeder.php)(手动执行   php artisan db:seed --class=*** 具体执行某一个填充类)</code></pre><h2 id="5-设置模型属性，"><a href="#5-设置模型属性，" class="headerlink" title="5.设置模型属性，"></a>5.设置模型属性，</h2><pre><code>详情见模型  1.定义主键 表名称 可填充数据的字段    protected $primaryKey=&#39;id&#39;;        protected $table=&#39;articles&#39;;        protected $fillable = [&#39;title&#39;,&#39;content&#39;,&#39;category_id&#39;,&#39;introduction&#39;, &#39;author&#39;];  2 .定义表的关联关系         两个关联表要同时定义关联关系， 可在php artisan tinker 里面做验证【类似sql语句， 程序里能写的都可以在这里做验证，相当于一个交互式的环境】</code></pre><h2 id="6-设置资源路由"><a href="#6-设置资源路由" class="headerlink" title="6.设置资源路由"></a>6.设置资源路由</h2><h2 id="7-控制器-视图编写相关代码"><a href="#7-控制器-视图编写相关代码" class="headerlink" title="7.控制器 视图编写相关代码"></a>7.控制器 视图编写相关代码</h2><p>create—-store<br>edit——–update</p><p><img src="/wiki/PHP-Laravel-CURD%E5%B0%8F%E7%BB%93/01.png"><br><img src="/wiki/PHP-Laravel-CURD%E5%B0%8F%E7%BB%93/02.png"><br><img src="/wiki/PHP-Laravel-CURD%E5%B0%8F%E7%BB%93/03.png"></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;Laravel-CURD小结&quot;&gt;&lt;a href=&quot;#Laravel-CURD小结&quot; class=&quot;headerlink&quot; title=&quot;Laravel-CURD小结&quot;&gt;&lt;/a&gt;Laravel-CURD小结&lt;/h3&gt;&lt;h2 id=&quot;1-curd思路设计表格式&quot;&gt;&lt;a
+      
+    
+    </summary>
+    
+    
+      <category term="PHP" scheme="http://yoursite.com/categories/PHP/"/>
+    
+      <category term="框架" scheme="http://yoursite.com/categories/PHP/%E6%A1%86%E6%9E%B6/"/>
+    
+      <category term="Laravel" scheme="http://yoursite.com/categories/PHP/%E6%A1%86%E6%9E%B6/Laravel/"/>
+    
+    
+      <category term="PHP 框架 Laravel" scheme="http://yoursite.com/tags/PHP-%E6%A1%86%E6%9E%B6-Laravel/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>JavaScript-跨域</title>
+    <link href="http://yoursite.com/wiki/JavaScript-%E8%B7%A8%E5%9F%9F/"/>
+    <id>http://yoursite.com/wiki/JavaScript-%E8%B7%A8%E5%9F%9F/</id>
+    <published>2019-09-28T16:00:00.000Z</published>
+    <updated>2020-08-05T09:04:42.835Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="跨域"><a href="#跨域" class="headerlink" title="跨域"></a>跨域</h3><ol><li>不同域名 不同端口 不同协议  不同域名</li><li>proxy 代理  jsonp  后端配置(常用)</li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;跨域&quot;&gt;&lt;a href=&quot;#跨域&quot; class=&quot;headerlink&quot; title=&quot;跨域&quot;&gt;&lt;/a&gt;跨域&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;不同域名 不同端口 不同协议  不同域名&lt;/li&gt;
+&lt;li&gt;proxy 代理  jsonp  后端配置(常用)&lt;/li&gt;
+&lt;/o
+      
+    
+    </summary>
+    
+    
+      <category term="JavaScript" scheme="http://yoursite.com/categories/JavaScript/"/>
+    
+      <category term="基础" scheme="http://yoursite.com/categories/JavaScript/%E5%9F%BA%E7%A1%80/"/>
+    
+    
+      <category term="JavaScript 基础知识 跨域" scheme="http://yoursite.com/tags/JavaScript-%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86-%E8%B7%A8%E5%9F%9F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Jquery和vue区别</title>
+    <link href="http://yoursite.com/wiki/Jquery%E5%92%8Cvue%E5%8C%BA%E5%88%AB/"/>
+    <id>http://yoursite.com/wiki/Jquery%E5%92%8Cvue%E5%8C%BA%E5%88%AB/</id>
+    <published>2019-09-27T16:00:00.000Z</published>
+    <updated>2020-08-05T09:04:58.279Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="jquery和vue区别"><a href="#jquery和vue区别" class="headerlink" title="jquery和vue区别"></a>jquery和vue区别</h3><ol><li>jq侧重于视图层，通过dom去实现页面的逻辑渲染 </li><li>vue侧重于数据层，通过双向绑定最终表现在dom，减少了dom操作</li><li>vue优势，组件化，提高了效率，方便重复使用，便于协同开发 </li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;jquery和vue区别&quot;&gt;&lt;a href=&quot;#jquery和vue区别&quot; class=&quot;headerlink&quot; title=&quot;jquery和vue区别&quot;&gt;&lt;/a&gt;jquery和vue区别&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;jq侧重于视图层，通过dom去实现页面的逻辑渲染
+      
+    
+    </summary>
+    
+    
+      <category term="JavaScript" scheme="http://yoursite.com/categories/JavaScript/"/>
+    
+      <category term="基础" scheme="http://yoursite.com/categories/JavaScript/%E5%9F%BA%E7%A1%80/"/>
+    
+    
+      <category term="JavaScript 基础知识 jq vue" scheme="http://yoursite.com/tags/JavaScript-%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86-jq-vue/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>JavaScript-闭包</title>
+    <link href="http://yoursite.com/wiki/JavaScript-%E9%97%AD%E5%8C%85/"/>
+    <id>http://yoursite.com/wiki/JavaScript-%E9%97%AD%E5%8C%85/</id>
+    <published>2019-09-24T16:00:00.000Z</published>
+    <updated>2020-08-05T08:57:43.806Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="闭包的作用"><a href="#闭包的作用" class="headerlink" title="闭包的作用"></a>闭包的作用</h3><h6 id="一个函数可以访问外部函数的内部变量，构成一个闭包环境-函数嵌套-引用外部函数变量，-内部函数有一个对象，存储外部被引用的变量"><a href="#一个函数可以访问外部函数的内部变量，构成一个闭包环境-函数嵌套-引用外部函数变量，-内部函数有一个对象，存储外部被引用的变量" class="headerlink" title="一个函数可以访问外部函数的内部变量，构成一个闭包环境(函数嵌套  引用外部函数变量，  内部函数有一个对象，存储外部被引用的变量)"></a>一个函数可以访问外部函数的内部变量，构成一个闭包环境(函数嵌套  引用外部函数变量，  内部函数有一个对象，存储外部被引用的变量)</h6><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">闭包的生命周期：在嵌套的内部函数成为垃圾对象时</span><br><span class="line">也就是不再被引用</span><br></pre></td></tr></table></figure><h3 id="闭包作用"><a href="#闭包作用" class="headerlink" title="闭包作用"></a>闭包作用</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="number">1.</span> 变量维持的内存中</span><br><span class="line"><span class="number">2.</span> 保护内部变量，以防造成污染</span><br><span class="line">   - 但是会造成内存泄露</span><br></pre></td></tr></table></figure><h3 id="使用场景—自定义js模块"><a href="#使用场景—自定义js模块" class="headerlink" title="使用场景—自定义js模块"></a>使用场景—自定义js模块</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">开发中经常用到的函数，格式化时间日期的，判断是否是数字的等等，封装到一个模块里面，  </span><br><span class="line">在需要使用的地方引入。不能直接访问内部的东西，但是可以通过暴露接口给外部，操作内部的数据</span><br></pre></td></tr></table></figure><h3 id="代码示例"><a href="#代码示例" class="headerlink" title="代码示例"></a>代码示例</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">   <span class="function"><span class="keyword">function</span> <span class="title">fun</span>(<span class="params">n, o</span>) </span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(o);</span><br><span class="line">      <span class="keyword">return</span> &#123;</span><br><span class="line">          fun:<span class="function"><span class="keyword">function</span>(<span class="params">m</span>) </span>&#123;</span><br><span class="line">              <span class="keyword">return</span> fun(m, n);</span><br><span class="line">          &#125;</span><br><span class="line">      &#125;</span><br><span class="line">   &#125; </span><br><span class="line">   </span><br><span class="line">   <span class="comment">//   var b = fun(0).fun(1).fun(2).fun(3);  //0 1 2    </span></span><br><span class="line"> <span class="comment">// m1no n 1 o 0    m 2 n 1  n 2 o 1    m 3 n 2  n 3 o 2</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">//  var a = fun(0);</span></span><br><span class="line">  <span class="comment">//  a.fun(1);//m 1 n 0</span></span><br><span class="line">  <span class="comment">//  a.fun(2); // m2 n 0</span></span><br><span class="line">  <span class="comment">//  a.fun(3); //m 3 n 0</span></span><br><span class="line"></span><br><span class="line">   <span class="keyword">var</span> c = fun(<span class="number">0</span>).fun(<span class="number">1</span>); <span class="comment">// m 1 n 0 n 1 o 0   </span></span><br><span class="line">    c.fun(<span class="number">2</span>); <span class="comment">// m 2 n 1 n 2 o 1 </span></span><br><span class="line">    c.fun(<span class="number">3</span>); <span class="comment">//  m 3 n 1  n 3 o 1</span></span><br></pre></td></tr></table></figure><h6 id="闭包的缺点"><a href="#闭包的缺点" class="headerlink" title="闭包的缺点"></a>闭包的缺点</h6><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">函数执行完后，函数内部局部变量没有释放，占用内存时间会边长容易造成内存泄露</span><br><span class="line">***解决---及时释放内存</span><br><span class="line">结束生命=====  f=<span class="literal">null</span></span><br></pre></td></tr></table></figure><h6 id="闭包的暴力理解"><a href="#闭包的暴力理解" class="headerlink" title="闭包的暴力理解"></a>闭包的暴力理解</h6><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">在使用闭包时候，当函数执行完，用一个新的引入变量，去接受内部函数返回的函数对象，闭包就在函数对象里面形成了，  </span><br><span class="line">作用就是 延长了外部函数变量的生命周期，以及内部函数对象的生命周期。</span><br><span class="line"></span><br><span class="line">如果没有引入变量是不会占用内存的，产生了  又放走了。</span><br><span class="line"></span><br><span class="line">结合截屏 看。。。对象的引用+垃圾回收机制</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">函数在 那个对象里面调用，<span class="built_in">this</span>就指向那个对象。</span><br><span class="line"></span><br></pre></td></tr></table></figure><h3 id="图解"><a href="#图解" class="headerlink" title="图解"></a>图解</h3><p><img src="/wiki/JavaScript-%E9%97%AD%E5%8C%85/bibao.png"></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;闭包的作用&quot;&gt;&lt;a href=&quot;#闭包的作用&quot; class=&quot;headerlink&quot; title=&quot;闭包的作用&quot;&gt;&lt;/a&gt;闭包的作用&lt;/h3&gt;&lt;h6 id=&quot;一个函数可以访问外部函数的内部变量，构成一个闭包环境-函数嵌套-引用外部函数变量，-内部函数有一个对象，存
+      
+    
+    </summary>
+    
+    
+      <category term="JavaScript" scheme="http://yoursite.com/categories/JavaScript/"/>
+    
+      <category term="基础" scheme="http://yoursite.com/categories/JavaScript/%E5%9F%BA%E7%A1%80/"/>
+    
+    
+      <category term="JavaScript 基础知识 闭包" scheme="http://yoursite.com/tags/JavaScript-%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86-%E9%97%AD%E5%8C%85/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>vue单页面应用的优缺点</title>
+    <link href="http://yoursite.com/wiki/vue%E5%8D%95%E9%A1%B5%E9%9D%A2%E5%BA%94%E7%94%A8%E7%9A%84%E4%BC%98%E7%BC%BA%E7%82%B9/"/>
+    <id>http://yoursite.com/wiki/vue%E5%8D%95%E9%A1%B5%E9%9D%A2%E5%BA%94%E7%94%A8%E7%9A%84%E4%BC%98%E7%BC%BA%E7%82%B9/</id>
+    <published>2019-08-30T16:00:00.000Z</published>
+    <updated>2020-08-05T09:04:06.266Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="单页面应用的优缺点-单页面的优点："><a href="#单页面应用的优缺点-单页面的优点：" class="headerlink" title="单页面应用的优缺点 单页面的优点："></a>单页面应用的优缺点 单页面的优点：</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span> 用户体验好，快，内容的改变不需要重新加载整个页面，基于这一点spa对服务器压力较小 </span><br><span class="line"></span><br><span class="line"><span class="number">2.</span> 前后端分离 </span><br><span class="line"></span><br><span class="line"><span class="number">3.</span> 页面效果会比较炫酷（比如切换页面内容时的专场动画） </span><br></pre></td></tr></table></figure><p>单页面的缺点 </p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="number">1.</span> 不利于seo </span><br><span class="line"></span><br><span class="line"><span class="number">2.</span> 导航不可用，如果一定要导航需要自行实现前进、后退。（由于是单页面不能用浏览器的前进后退功能，所以需要自己建立堆栈管理） </span><br><span class="line"></span><br><span class="line"><span class="number">3.</span> 初次加载时耗时多 </span><br><span class="line"></span><br><span class="line"><span class="number">4.</span> 页面复杂度提高很多</span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;单页面应用的优缺点-单页面的优点：&quot;&gt;&lt;a href=&quot;#单页面应用的优缺点-单页面的优点：&quot; class=&quot;headerlink&quot; title=&quot;单页面应用的优缺点 单页面的优点：&quot;&gt;&lt;/a&gt;单页面应用的优缺点 单页面的优点：&lt;/h3&gt;&lt;figure class
+      
+    
+    </summary>
+    
+    
+      <category term="Vue" scheme="http://yoursite.com/categories/Vue/"/>
+    
+      <category term="基础" scheme="http://yoursite.com/categories/Vue/%E5%9F%BA%E7%A1%80/"/>
+    
+    
+      <category term="Vue 单页面应用 优缺点" scheme="http://yoursite.com/tags/Vue-%E5%8D%95%E9%A1%B5%E9%9D%A2%E5%BA%94%E7%94%A8-%E4%BC%98%E7%BC%BA%E7%82%B9/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>vue的样式穿透</title>
+    <link href="http://yoursite.com/wiki/vue%E7%9A%84%E6%A0%B7%E5%BC%8F%E7%A9%BF%E9%80%8F/"/>
+    <id>http://yoursite.com/wiki/vue%E7%9A%84%E6%A0%B7%E5%BC%8F%E7%A9%BF%E9%80%8F/</id>
+    <published>2019-08-30T16:00:00.000Z</published>
+    <updated>2020-08-05T09:06:11.544Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="vue深度作用域"><a href="#vue深度作用域" class="headerlink" title="vue深度作用域"></a>vue深度作用域</h3><h4 id="vue有-在有作用域样式的组建中，默认只能对作用域组件的根节点进行生效"><a href="#vue有-在有作用域样式的组建中，默认只能对作用域组件的根节点进行生效" class="headerlink" title="vue有 在有作用域样式的组建中，默认只能对作用域组件的根节点进行生效"></a>vue有 在有作用域样式的组建中，默认只能对作用域组件的根节点进行生效</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;根组件&gt;</span><br><span class="line">    &lt;子组件&gt;</span><br><span class="line">        &lt;子子组件&gt;</span><br><span class="line">        </span><br><span class="line">        &lt;/子子组件 <span class="class"><span class="keyword">class</span></span>=<span class="string">&quot;a&quot;</span>&gt;</span><br><span class="line">    &lt;/子组件&gt;</span><br><span class="line">&lt;/根组件&gt;</span><br><span class="line"></span><br><span class="line">此时 样式a只能作用在根节点组件,要想作用在子组件可用以下解决办法。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="number">1.</span>脱离作用域，去掉scoped 但是容易和其他组件样式冲突</span><br><span class="line"><span class="number">2.</span> /deep/<span class="string">` 或者 `</span>::v-deep<span class="string">`  &gt;&gt;&gt;</span></span><br><span class="line"><span class="string">详细见文档----&gt; loader ---&gt;作用域样式 深度作用域</span></span><br></pre></td></tr></table></figure><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">/deep/ .abc &#123;</span><br><span class="line">   <span class="selector-tag">position</span>: <span class="selector-tag">fixed</span>;</span><br><span class="line">     <span class="selector-tag">margin</span>：10<span class="selector-tag">px</span>;</span><br><span class="line">     <span class="selector-tag">padding</span>: 20<span class="selector-tag">px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;vue深度作用域&quot;&gt;&lt;a href=&quot;#vue深度作用域&quot; class=&quot;headerlink&quot; title=&quot;vue深度作用域&quot;&gt;&lt;/a&gt;vue深度作用域&lt;/h3&gt;&lt;h4 id=&quot;vue有-在有作用域样式的组建中，默认只能对作用域组件的根节点进行生效&quot;&gt;&lt;a h
+      
+    
+    </summary>
+    
+    
+      <category term="Vue" scheme="http://yoursite.com/categories/Vue/"/>
+    
+      <category term="基础" scheme="http://yoursite.com/categories/Vue/%E5%9F%BA%E7%A1%80/"/>
+    
+    
+      <category term="Vue 样式穿透 深度作用域" scheme="http://yoursite.com/tags/Vue-%E6%A0%B7%E5%BC%8F%E7%A9%BF%E9%80%8F-%E6%B7%B1%E5%BA%A6%E4%BD%9C%E7%94%A8%E5%9F%9F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>JavaScript-箭头函数与普通函数的区别</title>
+    <link href="http://yoursite.com/wiki/JavaScript-%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0%E4%B8%8E%E6%99%AE%E9%80%9A%E5%87%BD%E6%95%B0%E7%9A%84%E5%8C%BA%E5%88%AB/"/>
+    <id>http://yoursite.com/wiki/JavaScript-%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0%E4%B8%8E%E6%99%AE%E9%80%9A%E5%87%BD%E6%95%B0%E7%9A%84%E5%8C%BA%E5%88%AB/</id>
+    <published>2019-08-24T16:00:00.000Z</published>
+    <updated>2020-08-15T12:57:42.879Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="箭头函数与普通函数的区别"><a href="#箭头函数与普通函数的区别" class="headerlink" title="箭头函数与普通函数的区别"></a>箭头函数与普通函数的区别</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">- 内部没有arguments</span><br><span class="line">- 内部没有this</span><br><span class="line">- 不能作为构造器</span><br></pre></td></tr></table></figure><h4 id="写法区别"><a href="#写法区别" class="headerlink" title="写法区别"></a>写法区别</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">es5 写法</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> show = <span class="function"><span class="keyword">function</span> (<span class="params">x</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&#x27;es5&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">es6写法 show是变量</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> show = <span class="function">(<span class="params">x</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&#x27;es6&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">唯且仅有只有一个参数的时候()可以省略</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> show = <span class="function"><span class="params">x</span> =&gt;</span> <span class="keyword">return</span> &#123;</span><br><span class="line">    <span class="string">&#x27;es6&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">当只有<span class="keyword">return</span>一行的时候，可以省略<span class="keyword">return</span>，&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> add = <span class="function">(<span class="params">a,b</span>) =&gt;</span> a+b</span><br><span class="line"></span><br></pre></td></tr></table></figure><h4 id="函数参数不确定"><a href="#函数参数不确定" class="headerlink" title="函数参数不确定"></a>函数参数不确定</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">es5 写法</span><br><span class="line"></span><br><span class="line"><span class="built_in">arguments</span>是伪数组，转化为数组，<span class="built_in">Array</span>.from(<span class="built_in">arguments</span>)或者</span><br><span class="line"><span class="built_in">Array</span>.prototype.slice.apply(<span class="built_in">arguments</span>)，将他转化数组</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">show</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">arguments</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">es6写法</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">show</span>(<span class="params">...arg</span>)</span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(arg);<span class="comment">//arg是一个数组</span></span><br><span class="line">  &#125;</span><br><span class="line">  or</span><br><span class="line"></span><br><span class="line">  <span class="keyword">let</span> show = <span class="function">(<span class="params">...arg</span>)=&gt;</span> <span class="built_in">console</span>.log(arg)</span><br><span class="line"></span><br></pre></td></tr></table></figure><h4 id="函数值默认"><a href="#函数值默认" class="headerlink" title="函数值默认"></a>函数值默认</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> show(a, b=<span class="number">1</span>, c=<span class="number">3</span>) =&gt; <span class="built_in">console</span>.log(a+b+c)</span><br><span class="line"></span><br><span class="line">show(<span class="number">0</span>); <span class="comment">//3</span></span><br><span class="line">show(<span class="number">0</span>,<span class="number">2</span>) <span class="comment">//4</span></span><br><span class="line">show(<span class="number">0</span>,<span class="number">2</span>,<span class="number">3</span>) <span class="comment">//5</span></span><br></pre></td></tr></table></figure><h4 id="小例子"><a href="#小例子" class="headerlink" title="小例子"></a>小例子</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">例子一:</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">m</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">n</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> m+n</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">箭头函数写法</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> m =&gt; <span class="function"><span class="params">n</span> =&gt;</span> m+n 非常简洁</span><br><span class="line"></span><br></pre></td></tr></table></figure><h4 id="遗留问题"><a href="#遗留问题" class="headerlink" title="遗留问题"></a>遗留问题</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">什么是函数柯里化</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;箭头函数与普通函数的区别&quot;&gt;&lt;a href=&quot;#箭头函数与普通函数的区别&quot; class=&quot;headerlink&quot; title=&quot;箭头函数与普通函数的区别&quot;&gt;&lt;/a&gt;箭头函数与普通函数的区别&lt;/h3&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;
+      
+    
+    </summary>
+    
+    
+      <category term="JavaScript" scheme="http://yoursite.com/categories/JavaScript/"/>
+    
+      <category term="基础" scheme="http://yoursite.com/categories/JavaScript/%E5%9F%BA%E7%A1%80/"/>
+    
+    
+      <category term="JavaScript 基础知识 函数 箭头函数" scheme="http://yoursite.com/tags/JavaScript-%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86-%E5%87%BD%E6%95%B0-%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>vue项目是打包及生成的文件</title>
+    <link href="http://yoursite.com/wiki/vue%E9%A1%B9%E7%9B%AE%E6%98%AF%E6%89%93%E5%8C%85%E5%8F%8A%E7%94%9F%E6%88%90%E7%9A%84%E6%96%87%E4%BB%B6/"/>
+    <id>http://yoursite.com/wiki/vue%E9%A1%B9%E7%9B%AE%E6%98%AF%E6%89%93%E5%8C%85%E5%8F%8A%E7%94%9F%E6%88%90%E7%9A%84%E6%96%87%E4%BB%B6/</id>
+    <published>2019-08-23T16:00:00.000Z</published>
+    <updated>2020-08-05T08:57:16.344Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="vue项目是打包了一个js文件，一个css文件"><a href="#vue项目是打包了一个js文件，一个css文件" class="headerlink" title="vue项目是打包了一个js文件，一个css文件"></a>vue项目是打包了一个js文件，一个css文件</h3> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"> 根据vue-cli脚手架规范，一个js文件，一个CSS文件。 </span><br><span class="line">在打包之前</span><br><span class="line"> 1.代理的url </span><br><span class="line">2.build assetsPublicPath: &#39;.&#x2F;&#39;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;vue项目是打包了一个js文件，一个css文件&quot;&gt;&lt;a href=&quot;#vue项目是打包了一个js文件，一个css文件&quot; class=&quot;headerlink&quot; title=&quot;vue项目是打包了一个js文件，一个css文件&quot;&gt;&lt;/a&gt;vue项目是打包了一个js文件，一
+      
+    
+    </summary>
+    
+    
+      <category term="Vue" scheme="http://yoursite.com/categories/Vue/"/>
+    
+      <category term="基础" scheme="http://yoursite.com/categories/Vue/%E5%9F%BA%E7%A1%80/"/>
+    
+    
+      <category term="Vue 基础知识 项目打包" scheme="http://yoursite.com/tags/Vue-%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86-%E9%A1%B9%E7%9B%AE%E6%89%93%E5%8C%85/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Mysql远程连接失败解决方案</title>
+    <link href="http://yoursite.com/wiki/Mysql-%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5%E5%A4%B1%E8%B4%A5%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/"/>
+    <id>http://yoursite.com/wiki/Mysql-%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5%E5%A4%B1%E8%B4%A5%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</id>
+    <published>2019-08-02T08:58:34.000Z</published>
+    <updated>2020-08-05T09:05:17.694Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="今天编译安装mysql-Navicate远程连接失败-整理以下解决方案"><a href="#今天编译安装mysql-Navicate远程连接失败-整理以下解决方案" class="headerlink" title="今天编译安装mysql, Navicate远程连接失败,整理以下解决方案"></a>今天编译安装mysql, Navicate远程连接失败,整理以下解决方案</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span>安全组 开放端口</span><br><span class="line"><span class="number">2.</span>防火墙 开放端口</span><br><span class="line"><span class="number">3.</span> mysql 配置  bind <span class="number">0000</span></span><br><span class="line"><span class="number">4.</span>开放权限 修改mysql user表中 root 远程连接权限</span><br></pre></td></tr></table></figure><h3 id="在8-0以前，我们习惯使用以下命令授权远程连接操作："><a href="#在8-0以前，我们习惯使用以下命令授权远程连接操作：" class="headerlink" title="在8.0以前，我们习惯使用以下命令授权远程连接操作："></a>在8.0以前，我们习惯使用以下命令授权远程连接操作：</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">grant all privileges on *.* to <span class="string">&#x27;root&#x27;</span>@<span class="string">&#x27;%&#x27;</span>;</span><br><span class="line">但在<span class="number">8.0</span>以后，使用以上命令会报错</span><br><span class="line"><span class="built_in">ERROR</span> <span class="number">1410</span> (<span class="number">42000</span>): You are not allowed to create a user with GRANT</span><br></pre></td></tr></table></figure><h3 id="使用以下命令可以成功，但无法远程登陆："><a href="#使用以下命令可以成功，但无法远程登陆：" class="headerlink" title="使用以下命令可以成功，但无法远程登陆："></a>使用以下命令可以成功，但无法远程登陆：</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">grant all on *.* to <span class="string">&#x27;root&#x27;</span>@<span class="string">&#x27;%&#x27;</span>;</span><br><span class="line"></span><br><span class="line">此时，可以使用以下<span class="number">2</span>种方式，实现远程：</span><br><span class="line">-- <span class="number">1.</span> 使用alter user</span><br><span class="line">alter user set user.host=<span class="string">&#x27;%&#x27;</span> where user.user=<span class="string">&#x27;root&#x27;</span>;</span><br><span class="line">-- <span class="number">2.</span> 使用create user</span><br><span class="line">create user <span class="string">&#x27;userName&#x27;</span>@<span class="string">&#x27;%&#x27;</span> identified <span class="string">&#x27;your_password&#x27;</span>;</span><br></pre></td></tr></table></figure><h3 id="重要-flushprivileges-别忘记"><a href="#重要-flushprivileges-别忘记" class="headerlink" title="重要 flushprivileges 别忘记"></a>重要 flushprivileges 别忘记</h3>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;今天编译安装mysql-Navicate远程连接失败-整理以下解决方案&quot;&gt;&lt;a href=&quot;#今天编译安装mysql-Navicate远程连接失败-整理以下解决方案&quot; class=&quot;headerlink&quot; title=&quot;今天编译安装mysql, Navicate远
+      
+    
+    </summary>
+    
+    
+      <category term="mysql" scheme="http://yoursite.com/categories/mysql/"/>
+    
+      <category term="基础" scheme="http://yoursite.com/categories/mysql/%E5%9F%BA%E7%A1%80/"/>
+    
+    
+      <category term="mysql基础 远程连接" scheme="http://yoursite.com/tags/mysql%E5%9F%BA%E7%A1%80-%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>vue中NextTick是做什么的</title>
+    <link href="http://yoursite.com/wiki/vue%E4%B8%ADNextTick%E6%98%AF%E5%81%9A%E4%BB%80%E4%B9%88%E7%9A%84/"/>
+    <id>http://yoursite.com/wiki/vue%E4%B8%ADNextTick%E6%98%AF%E5%81%9A%E4%BB%80%E4%B9%88%E7%9A%84/</id>
+    <published>2019-07-11T16:00:00.000Z</published>
+    <updated>2020-08-05T08:57:26.466Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="NextTick-是做什么的"><a href="#NextTick-是做什么的" class="headerlink" title="NextTick 是做什么的"></a>NextTick 是做什么的</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">说明： $nextTick 是在下次 DOM  更新循环结束之后执行延迟回调，在修改数据之后使用 $nextTick，  </span><br><span class="line">则可以在回调中获取更新后的 DOM。  </span><br><span class="line"></span><br><span class="line">场景： 需要在视图更新之后，基于新的视图进行操作</span><br><span class="line">使用swiper axios请求数据， 数据（图片）</span><br><span class="line"> </span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;NextTick-是做什么的&quot;&gt;&lt;a href=&quot;#NextTick-是做什么的&quot; class=&quot;headerlink&quot; title=&quot;NextTick 是做什么的&quot;&gt;&lt;/a&gt;NextTick 是做什么的&lt;/h3&gt;&lt;figure class=&quot;highlight 
+      
+    
+    </summary>
+    
+    
+      <category term="Vue" scheme="http://yoursite.com/categories/Vue/"/>
+    
+      <category term="基础" scheme="http://yoursite.com/categories/Vue/%E5%9F%BA%E7%A1%80/"/>
+    
+    
+      <category term="Vue NextTick" scheme="http://yoursite.com/tags/Vue-NextTick/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>vue-router动态路由的定义</title>
+    <link href="http://yoursite.com/wiki/vue-router%E5%8A%A8%E6%80%81%E8%B7%AF%E7%94%B1%E7%9A%84%E5%AE%9A%E4%B9%89/"/>
+    <id>http://yoursite.com/wiki/vue-router%E5%8A%A8%E6%80%81%E8%B7%AF%E7%94%B1%E7%9A%84%E5%AE%9A%E4%B9%89/</id>
+    <published>2019-03-01T16:00:00.000Z</published>
+    <updated>2020-08-05T09:03:32.420Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="怎么定义vue-router的动态路由"><a href="#怎么定义vue-router的动态路由" class="headerlink" title="怎么定义vue-router的动态路由"></a>怎么定义vue-router的动态路由</h3><pre><code>在router目录下的index.js文件中，对path属性加上/:id 怎么获取传过来的动态参数？ 使用router对象的params.id</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;怎么定义vue-router的动态路由&quot;&gt;&lt;a href=&quot;#怎么定义vue-router的动态路由&quot; class=&quot;headerlink&quot; title=&quot;怎么定义vue-router的动态路由&quot;&gt;&lt;/a&gt;怎么定义vue-router的动态路由&lt;/h3&gt;&lt;pre&gt;
+      
+    
+    </summary>
+    
+    
+      <category term="Vue" scheme="http://yoursite.com/categories/Vue/"/>
+    
+      <category term="基础" scheme="http://yoursite.com/categories/Vue/%E5%9F%BA%E7%A1%80/"/>
+    
+    
+      <category term="Vue 动态路由" scheme="http://yoursite.com/tags/Vue-%E5%8A%A8%E6%80%81%E8%B7%AF%E7%94%B1/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>vue双向绑定原理</title>
+    <link href="http://yoursite.com/wiki/vue%E5%8F%8C%E5%90%91%E7%BB%91%E5%AE%9A%E5%8E%9F%E7%90%86/"/>
+    <id>http://yoursite.com/wiki/vue%E5%8F%8C%E5%90%91%E7%BB%91%E5%AE%9A%E5%8E%9F%E7%90%86/</id>
+    <published>2019-02-14T16:00:00.000Z</published>
+    <updated>2020-08-05T08:57:15.057Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="Vue的双向数据绑定原理是什么？"><a href="#Vue的双向数据绑定原理是什么？" class="headerlink" title="Vue的双向数据绑定原理是什么？"></a>Vue的双向数据绑定原理是什么？</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">view 更新data 可以通过事件监听，关键 data 如何更新view呢？</span><br><span class="line"></span><br><span class="line">通过<span class="keyword">Object</span>.defineProperty()对属性设置一个set函数，当数据改变了，就会  </span><br><span class="line">触发这个函数，所以只要将一些需要更新的方法放在这里面，就能实现data更新view了   </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="number">1.</span> 实现一个监听器Observer，用来劫持监听所有属性，如果有变动，通知订阅者</span><br><span class="line"><span class="number">2.</span> 实现一个订阅者watcher，可以收到属性的变化通知并执行相应的函数，从而更新视图   </span><br><span class="line"><span class="number">3.</span> 实现一个解析器Compile，可以扫描和解析每个节点相关指令，初始化末班数据以及初始化相应的订阅者</span><br><span class="line"></span><br><span class="line">监听器 observer ===》 订阅者 watcher</span><br><span class="line"></span><br><span class="line">Compile 解析器 ===解析相关指令===》wachter </span><br><span class="line"></span><br><span class="line">watcher ===更新===》view</span><br><span class="line"> </span><br></pre></td></tr></table></figure><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">总计：vue数据双向绑定是通过数据劫持结合发布者-订阅者模式的方式来实现的。</span><br><span class="line"></span><br><span class="line"> <span class="number">1.</span>为什么会多出这两个方法呢？ 因为vue是通过<span class="built_in">Object</span>.defineProperty()来实现数据劫持的。</span><br><span class="line"></span><br><span class="line"> <span class="number">2.</span><span class="built_in">Object</span>.defineProperty( )是用来做什么的？ 它可以来控制一个对象属性的一些特有操作，</span><br><span class="line">比如读写权、是否可以枚举，这里我们主要先来研究下它对应的两个描述属性get和set。</span><br><span class="line"> <span class="built_in">Object</span>.defineProperty(对象,属性,&#123; get()&#123;&#125;, set()&#123;&#125; &#125;)</span><br><span class="line"> </span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;Vue的双向数据绑定原理是什么？&quot;&gt;&lt;a href=&quot;#Vue的双向数据绑定原理是什么？&quot; class=&quot;headerlink&quot; title=&quot;Vue的双向数据绑定原理是什么？&quot;&gt;&lt;/a&gt;Vue的双向数据绑定原理是什么？&lt;/h3&gt;&lt;figure class=&quot;hi
+      
+    
+    </summary>
+    
+    
+      <category term="Vue" scheme="http://yoursite.com/categories/Vue/"/>
+    
+      <category term="基础" scheme="http://yoursite.com/categories/Vue/%E5%9F%BA%E7%A1%80/"/>
+    
+    
+      <category term="Vue 双向绑定" scheme="http://yoursite.com/tags/Vue-%E5%8F%8C%E5%90%91%E7%BB%91%E5%AE%9A/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>JavaScript-面向对象</title>
+    <link href="http://yoursite.com/wiki/JavaScript-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/"/>
+    <id>http://yoursite.com/wiki/JavaScript-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/</id>
+    <published>2018-10-24T16:00:00.000Z</published>
+    <updated>2020-08-05T09:04:51.167Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="JS面向对对象"><a href="#JS面向对对象" class="headerlink" title="JS面向对对象"></a>JS面向对对象</h3><h5 id="对象的创建"><a href="#对象的创建" class="headerlink" title="对象的创建"></a>对象的创建</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span> <span class="built_in">Object</span> 构造函数模式</span><br><span class="line"></span><br><span class="line">    套路：先创建空object对象，再动态添加属性方法</span><br><span class="line">    适用场景：其初时候不确定对象内部数据</span><br><span class="line">    </span><br><span class="line">    js 内置对象 </span><br><span class="line">    <span class="keyword">var</span> obj = <span class="keyword">new</span> Obj(); obj.name = 张三</span><br><span class="line">    问题： 语句太多</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">var</span> obj = <span class="keyword">new</span> Obj();</span><br><span class="line">    obj.name = <span class="string">&#x27;张三&#x27;</span></span><br><span class="line">    obj.age = <span class="number">40</span></span><br><span class="line">    obj.setName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">this</span>.name = name</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">console</span>.log(obj.name, obj.age)</span><br><span class="line">    </span><br><span class="line"><span class="number">2.</span> 对象字面量模式</span><br><span class="line"></span><br><span class="line">    使用&#123;&#125;创建对象，同时指定属性/方法</span><br><span class="line">    适用场景：起始时对象内部数据是确定的</span><br><span class="line">    问题：如果创建多个对象，有重复代码</span><br><span class="line">    <span class="keyword">var</span> obj = &#123;</span><br><span class="line">        name: <span class="string">&#x27;jack&#x27;</span>,</span><br><span class="line">        age: <span class="number">30</span>,</span><br><span class="line">        setName: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            <span class="built_in">this</span>.name = name</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    obj.setName(<span class="string">&#x27;hanmeimei&#x27;</span>)</span><br><span class="line">    <span class="built_in">console</span>.log(obj)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="number">3.</span> 工厂模式</span><br><span class="line"></span><br><span class="line">通过工厂函数动态创建对象并返回</span><br><span class="line">适用场景：需要创建多个对象</span><br><span class="line">问题：对象没有一个具体的类型，都是<span class="built_in">Object</span>类型</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">createTeacher</span>(<span class="params">name,age,major</span>)</span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> obj = &#123;</span><br><span class="line">           name:name,</span><br><span class="line">            age:age,</span><br><span class="line">            major:major,</span><br><span class="line">            setName: <span class="function"><span class="keyword">function</span>(<span class="params">name</span>)</span>&#123;</span><br><span class="line">                <span class="built_in">this</span>.name= name</span><br><span class="line">            &#125; </span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> obj;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> p1 = createPerson(<span class="string">&#x27;zhangsna&#x27;</span>, <span class="number">30</span>, <span class="string">&#x27;it&#x27;</span>);</span><br><span class="line"><span class="keyword">var</span> p2 = createPerson(<span class="string">&#x27;lisi&#x27;</span>, <span class="number">45</span>, <span class="string">&#x27;trade&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">createStudent</span>(<span class="params">name,age,major</span>)</span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> obj = &#123;</span><br><span class="line">           name:name,</span><br><span class="line">            age:age,</span><br><span class="line">            major:major,</span><br><span class="line">            setName: <span class="function"><span class="keyword">function</span>(<span class="params">name</span>)</span>&#123;</span><br><span class="line">                <span class="built_in">this</span>.name= name</span><br><span class="line">            &#125; </span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> obj;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">只知道创造了一个对象 无法判断 对象之间的区别 属于学生还是teacher</span><br><span class="line"></span><br><span class="line"><span class="number">4.</span> 自定义构造函数模式</span><br><span class="line"></span><br><span class="line">套路：自定义构造函数，通过<span class="keyword">new</span>创建对象</span><br><span class="line">适用场景：需要创建多个类型确定的对象</span><br><span class="line">问题：每个对象都有相同的数据，浪费内存</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Student</span>(<span class="params">name, age, major</span>)</span>&#123;</span><br><span class="line">     name:name,</span><br><span class="line">            age:age,</span><br><span class="line">            major:major,</span><br><span class="line">            setName: <span class="function"><span class="keyword">function</span>(<span class="params">name</span>)</span>&#123;</span><br><span class="line">                <span class="built_in">this</span>.name= name</span><br><span class="line">            &#125; </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Teacher</span>(<span class="params">name, age, major</span>)</span>&#123;</span><br><span class="line">     name:name,</span><br><span class="line">            age:age,</span><br><span class="line">            major:major,</span><br><span class="line">            setName: <span class="function"><span class="keyword">function</span>(<span class="params">name</span>)</span>&#123;</span><br><span class="line">                <span class="built_in">this</span>.name= name</span><br><span class="line">            &#125; </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> p1 = <span class="keyword">new</span> Student(<span class="string">&#x27;zang&#x27;</span>, <span class="number">30</span>, <span class="string">&#x27;dazhuan&#x27;</span>);</span><br><span class="line"><span class="keyword">var</span> t1 = <span class="keyword">new</span> Teacher(<span class="string">&#x27;xiaoli&#x27;</span>, <span class="number">40</span>, <span class="string">&#x27;qinghua&#x27;</span>); </span><br><span class="line">每个实例都有相同的 属性方法，造成内存的浪费</span><br><span class="line"></span><br><span class="line"><span class="number">5.</span> 构造函数 + 原型 的组合模式</span><br><span class="line"></span><br><span class="line">自定义构造函数，属性在函数中初始化，方法添加到原型上</span><br><span class="line"></span><br><span class="line">适用场景：需要创建多个类型确定的对象</span><br><span class="line"></span><br></pre></td></tr></table></figure><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">函数原型 ==&gt; Obj ===&gt; <span class="literal">null</span></span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;JS面向对对象&quot;&gt;&lt;a href=&quot;#JS面向对对象&quot; class=&quot;headerlink&quot; title=&quot;JS面向对对象&quot;&gt;&lt;/a&gt;JS面向对对象&lt;/h3&gt;&lt;h5 id=&quot;对象的创建&quot;&gt;&lt;a href=&quot;#对象的创建&quot; class=&quot;headerlink&quot; ti
+      
+    
+    </summary>
+    
+    
+      <category term="JavaScript" scheme="http://yoursite.com/categories/JavaScript/"/>
+    
+      <category term="基础" scheme="http://yoursite.com/categories/JavaScript/%E5%9F%BA%E7%A1%80/"/>
+    
+    
+      <category term="JavaScript 基础知识 面向对象 对象创建" scheme="http://yoursite.com/tags/JavaScript-%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1-%E5%AF%B9%E8%B1%A1%E5%88%9B%E5%BB%BA/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>vue中插件使用</title>
+    <link href="http://yoursite.com/wiki/vue%E4%B8%AD%E6%8F%92%E4%BB%B6%E4%BD%BF%E7%94%A8/"/>
+    <id>http://yoursite.com/wiki/vue%E4%B8%AD%E6%8F%92%E4%BB%B6%E4%BD%BF%E7%94%A8/</id>
+    <published>2018-09-18T16:00:00.000Z</published>
+    <updated>2020-08-05T08:57:56.816Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="Vue-中-插件使用"><a href="#Vue-中-插件使用" class="headerlink" title="Vue 中 插件使用"></a>Vue 中 插件使用</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span> 下载 npm install xxx</span><br><span class="line"><span class="number">2.</span> 引入 <span class="keyword">import</span> xx from <span class="string">&#x27;xxxx&#x27;</span> Vue.use(xxx)</span><br><span class="line">3. 配置 &lt;xx v-model=&#x27;xx&#x27; select=&#x27;xx&#x27;&gt;&lt;/xx&gt;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;Vue-中-插件使用&quot;&gt;&lt;a href=&quot;#Vue-中-插件使用&quot; class=&quot;headerlink&quot; title=&quot;Vue 中 插件使用&quot;&gt;&lt;/a&gt;Vue 中 插件使用&lt;/h3&gt;&lt;figure class=&quot;highlight&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td 
+      
+    
+    </summary>
+    
+    
+      <category term="Vue" scheme="http://yoursite.com/categories/Vue/"/>
+    
+      <category term="基础" scheme="http://yoursite.com/categories/Vue/%E5%9F%BA%E7%A1%80/"/>
+    
+    
+      <category term="Vue 基础知识 插件使用" scheme="http://yoursite.com/tags/Vue-%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86-%E6%8F%92%E4%BB%B6%E4%BD%BF%E7%94%A8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>php基础</title>
+    <link href="http://yoursite.com/wiki/PHP-%E5%9F%BA%E7%A1%80/"/>
+    <id>http://yoursite.com/wiki/PHP-%E5%9F%BA%E7%A1%80/</id>
+    <published>2018-08-01T16:00:00.000Z</published>
+    <updated>2020-08-05T09:09:36.076Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="待更新"><a href="#待更新" class="headerlink" title="待更新"></a>待更新</h3>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;待更新&quot;&gt;&lt;a href=&quot;#待更新&quot; class=&quot;headerlink&quot; title=&quot;待更新&quot;&gt;&lt;/a&gt;待更新&lt;/h3&gt;
+      
+    
+    </summary>
+    
+    
+      <category term="PHP" scheme="http://yoursite.com/categories/PHP/"/>
+    
+      <category term="基础" scheme="http://yoursite.com/categories/PHP/%E5%9F%BA%E7%A1%80/"/>
+    
+    
+      <category term="php 基础" scheme="http://yoursite.com/tags/php-%E5%9F%BA%E7%A1%80/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>vue中$route和$router的区别</title>
+    <link href="http://yoursite.com/wiki/vue%E4%B8%AD-route%E5%92%8C-router%E7%9A%84%E5%8C%BA%E5%88%AB/"/>
+    <id>http://yoursite.com/wiki/vue%E4%B8%AD-route%E5%92%8C-router%E7%9A%84%E5%8C%BA%E5%88%AB/</id>
+    <published>2018-08-01T16:00:00.000Z</published>
+    <updated>2020-08-02T15:34:19.305Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="route和-router的区别"><a href="#route和-router的区别" class="headerlink" title="$route和$router的区别"></a>$route和$router的区别</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$router为vueRouter的实例，相当于一个全局路由对象，里面含有很多属性和子对象 </span><br><span class="line">$route相当于当前正在跳转的路由对象</span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;route和-router的区别&quot;&gt;&lt;a href=&quot;#route和-router的区别&quot; class=&quot;headerlink&quot; title=&quot;$route和$router的区别&quot;&gt;&lt;/a&gt;$route和$router的区别&lt;/h3&gt;&lt;figure class=&quot;
+      
+    
+    </summary>
+    
+    
+      <category term="Vue" scheme="http://yoursite.com/categories/Vue/"/>
+    
+      <category term="基础" scheme="http://yoursite.com/categories/Vue/%E5%9F%BA%E7%A1%80/"/>
+    
+    
+      <category term="Vue $route $router" scheme="http://yoursite.com/tags/Vue-route-router/"/>
+    
+  </entry>
+  
+</feed>
