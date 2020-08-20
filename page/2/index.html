@@ -344,7 +344,7 @@
                     </li> 
                      </ul> 
                     </li> 
-                     <li class="file"><a href="/wiki/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E7%BD%91%E7%BB%9C/">计算机原理与网络</a></li>  </ul> 
+                     </ul> 
     </div>
     <script>
         $(document).ready(function() {
@@ -416,110 +416,6 @@
 </aside>
             
             <section id="main">
-        <article id="post-JavaScript-箭头函数与普通函数的区别" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-                    <div class="article-meta">
-                        
-    <div class="article-category">
-    	<i class="fa fa-folder"></i>
-        <a class="article-category-link" href="/categories/JavaScript/">JavaScript</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/JavaScript/%E5%9F%BA%E7%A1%80/">基础</a>
-    </div>
-
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link-link" href="/tags/JavaScript-%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86-%E5%87%BD%E6%95%B0-%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0/" rel="tag">JavaScript 基础知识 函数 箭头函数</a>
-    </div>
-
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/wiki/JavaScript-%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0%E4%B8%8E%E6%99%AE%E9%80%9A%E5%87%BD%E6%95%B0%E7%9A%84%E5%8C%BA%E5%88%AB/">
-            <time datetime="2019-08-24T16:00:00.000Z" itemprop="datePublished">2019-08-25</time>
-        </a>
-    </div>
-
-
-                        
-                            <i class="fa fa-bar-chart"></i>
-                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
-                        
-                        
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/zthxxx/Wiki-site/raw/writing/source/_posts/JavaScript-箭头函数与普通函数的区别.md'> Source </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/zthxxx/Wiki-site/edit/writing/source/_posts/JavaScript-箭头函数与普通函数的区别.md'> Edit </a>
-                            </div>
-                            <div class="article-meta-button">
-                                <a target="_blank" rel="noopener" href='https://github.com/zthxxx/Wiki-site/commits/writing/source/_posts/JavaScript-箭头函数与普通函数的区别.md'> History </a>
-                            </div>
-                        
-                    </div>
-                
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/wiki/JavaScript-%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0%E4%B8%8E%E6%99%AE%E9%80%9A%E5%87%BD%E6%95%B0%E7%9A%84%E5%8C%BA%E5%88%AB/">JavaScript-箭头函数与普通函数的区别</a>
-        </h1>
-    
-
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-        
-            
-                
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                    
-                    
-                
-                
-                    
-                    <p><h3 id="箭头函数与普通函数的区别"><a href="#箭头函数与普通函数的区别" class="headerlink" title="箭头函数与普通函数的区别"></a>箭头函数与普通函数的区别</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">- 内部没有arguments</span><br><span class="line">- 内部没有this</span><br><span class="line">- 不能作为构造器</span><br></pre></td></tr></table></figure>
-
-<h4 id="写法区别"><a href="#写法区别" class="headerlink" title="写法区别"></a>写法区别</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">es5 写法</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> show = <span class="function"><span class="keyword">function</span> (<span class="params">x</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&#x27;es5&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">es6写法 show是变量</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> show = <span class="function">(<span class="params">x</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&#x27;es6&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">唯且仅有只有一个参数的时候()可以省略</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> show = <span class="function"><span class="params">x</span> =&gt;</span> <span class="keyword">return</span> &#123;</span><br><span class="line">    <span class="string">&#x27;es6&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">当只有<span class="keyword">return</span>一行的时候，可以省略<span class="keyword">return</span>，&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> add = <span class="function">(<span class="params">a,b</span>) =&gt;</span> a+b</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h4 id="函数参数不确定"><a href="#函数参数不确定" class="headerlink" title="函数参数不确定"></a>函数参数不确定</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">es5 写法</span><br><span class="line"></span><br><span class="line"><span class="built_in">arguments</span>是伪数组，转化为数组，<span class="built_in">Array</span>.from(<span class="built_in">arguments</span>)或者</span><br><span class="line"><span class="built_in">Array</span>.prototype.slice.apply(<span class="built_in">arguments</span>)，将他转化数组</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">show</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">arguments</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">es6写法</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">show</span>(<span class="params">...arg</span>)</span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(arg);<span class="comment">//arg是一个数组</span></span><br><span class="line">  &#125;</span><br><span class="line">  or</span><br><span class="line"></span><br><span class="line">  <span class="keyword">let</span> show = <span class="function">(<span class="params">...arg</span>)=&gt;</span> <span class="built_in">console</span>.log(arg)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>
-                
-            
-        
-        
-            </div>   
-            <div class="article-more-link">
-                <a href="/wiki/JavaScript-%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0%E4%B8%8E%E6%99%AE%E9%80%9A%E5%87%BD%E6%95%B0%E7%9A%84%E5%8C%BA%E5%88%AB/#more">Read More</a>
-            </div>
-        
-        <footer class="article-footer">
-        </footer>
-    </div>
-</article>
-
-
-
-
-
-
-    
         <article id="post-vue项目是打包及生成的文件" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -1306,6 +1202,87 @@
         
         
             <h3 id="route和-router的区别"><a href="#route和-router的区别" class="headerlink" title="$route和$router的区别"></a>$route和$router的区别</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$router为vueRouter的实例，相当于一个全局路由对象，里面含有很多属性和子对象 </span><br><span class="line">$route相当于当前正在跳转的路由对象</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+            </div>
+        
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+
+
+
+
+
+    
+        <article id="post-vue-cli项目中src目录每个文件夹和文件的用法" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+                    <div class="article-meta">
+                        
+    <div class="article-category">
+    	<i class="fa fa-folder"></i>
+        <a class="article-category-link" href="/categories/Vue/">Vue</a><i class="fa fa-angle-right"></i><a class="article-category-link" href="/categories/Vue/%E5%9F%BA%E7%A1%80/">基础</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="/tags/Vue-%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86-%E8%B7%AF%E7%94%B1%E8%B7%B3%E8%BD%AC/" rel="tag">Vue 基础知识 路由跳转</a>
+    </div>
+
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/wiki/vue-cli%E9%A1%B9%E7%9B%AE%E4%B8%ADsrc%E7%9B%AE%E5%BD%95%E6%AF%8F%E4%B8%AA%E6%96%87%E4%BB%B6%E5%A4%B9%E5%92%8C%E6%96%87%E4%BB%B6%E7%9A%84%E7%94%A8%E6%B3%95/">
+            <time datetime="2018-06-24T16:00:00.000Z" itemprop="datePublished">2018-06-25</time>
+        </a>
+    </div>
+
+
+                        
+                            <i class="fa fa-bar-chart"></i>
+                            <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
+                        
+                        
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/zthxxx/Wiki-site/raw/writing/source/_posts/vue-cli项目中src目录每个文件夹和文件的用法.md'> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/zthxxx/Wiki-site/edit/writing/source/_posts/vue-cli项目中src目录每个文件夹和文件的用法.md'> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a target="_blank" rel="noopener" href='https://github.com/zthxxx/Wiki-site/commits/writing/source/_posts/vue-cli项目中src目录每个文件夹和文件的用法.md'> History </a>
+                            </div>
+                        
+                    </div>
+                
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/wiki/vue-cli%E9%A1%B9%E7%9B%AE%E4%B8%ADsrc%E7%9B%AE%E5%BD%95%E6%AF%8F%E4%B8%AA%E6%96%87%E4%BB%B6%E5%A4%B9%E5%92%8C%E6%96%87%E4%BB%B6%E7%9A%84%E7%94%A8%E6%B3%95/">vue-cli项目中src目录每个文件夹和文件的用法</a>
+        </h1>
+    
+
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+        
+            
+                
+                
+                    
+                    
+                
+            
+        
+        
+            <h3 id="vue-cli项目中src目录每个文件夹和文件的用法？"><a href="#vue-cli项目中src目录每个文件夹和文件的用法？" class="headerlink" title="vue-cli项目中src目录每个文件夹和文件的用法？"></a>vue-cli项目中src目录每个文件夹和文件的用法？</h3><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">src assets           |     静态资源 （图片、js、css）</span><br><span class="line">components           |     非路由组件</span><br><span class="line">views                |      路由组件</span><br><span class="line">router               |      路由配置</span><br><span class="line">store                |      vuex（仓库）</span><br><span class="line">App.vue              |      挂载的第一个组件</span><br><span class="line">main.js              |      全局的文件</span><br><span class="line"></span><br><span class="line">index.html =&gt; main.js  =&gt; App.vue</span><br><span class="line"> </span><br></pre></td></tr></table></figure>
             </div>
         
         <footer class="article-footer">
