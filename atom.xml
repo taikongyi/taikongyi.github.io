@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-08-05T08:57:36.411Z</updated>
+  <updated>2020-08-21T14:39:22.450Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>我是测试的</title>
+    <link href="http://yoursite.com/wiki/%E6%88%91%E6%98%AF%E6%B5%8B%E8%AF%95%E7%9A%84/"/>
+    <id>http://yoursite.com/wiki/%E6%88%91%E6%98%AF%E6%B5%8B%E8%AF%95%E7%9A%84/</id>
+    <published>2020-08-21T14:31:13.000Z</published>
+    <updated>2020-08-21T14:39:22.450Z</updated>
+    
+    <content type="html"><![CDATA[<p>### 我是爷爷<br>#### 我是爸爸<br>##### 我是儿子<br>###### 我最小</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">qqqqqqqqqqqqqqqqqqqqqqqqqqqqasdfasd阿斯达四大</span><br><span class="line">qqqqqqqqqqqqqqqqqqqqqqqqqqqqasdfasd阿斯达四大</span><br><span class="line">qqqqqqqqqqqqqqqqqqqqqqqqqqqqasdfasd阿斯达四大</span><br><span class="line">qqqqqqqqqqqqqqqqqqqqqqqqqqqqasdfasd阿斯达四大</span><br><span class="line">qqqqqqqqqqqqqqqqqqqqqqqqqqqqasdfasd阿斯达四大</span><br></pre></td></tr></table></figure><pre><code class="css">qqqqqqqqqqqqqqqqqqqqqqqqqqqqasdfasd阿斯达四大qqqqqqqqqqqqqqqqqqqqqqqqqqqqasdfasd阿斯达四大qqqqqqqqqqqqqqqqqqqqqqqqqqqqasdfasd阿斯达四大qqqqqqqqqqqqqqqqqqqqqqqqqqqqasdfasd阿斯达四大qqqqqqqqqqqqqqqqqqqqqqqqqqqqasdfasd阿斯达四大</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;### 我是爷爷&lt;br&gt;#### 我是爸爸&lt;br&gt;##### 我是儿子&lt;br&gt;###### 我最小&lt;/p&gt;
+&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
   
   <entry>
     <title>优化-性能优化</title>
@@ -549,34 +572,6 @@
     
     
       <category term="Vue $route $router" scheme="http://yoursite.com/tags/Vue-route-router/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>vue-cli项目中src目录每个文件夹和文件的用法</title>
-    <link href="http://yoursite.com/wiki/vue-cli%E9%A1%B9%E7%9B%AE%E4%B8%ADsrc%E7%9B%AE%E5%BD%95%E6%AF%8F%E4%B8%AA%E6%96%87%E4%BB%B6%E5%A4%B9%E5%92%8C%E6%96%87%E4%BB%B6%E7%9A%84%E7%94%A8%E6%B3%95/"/>
-    <id>http://yoursite.com/wiki/vue-cli%E9%A1%B9%E7%9B%AE%E4%B8%ADsrc%E7%9B%AE%E5%BD%95%E6%AF%8F%E4%B8%AA%E6%96%87%E4%BB%B6%E5%A4%B9%E5%92%8C%E6%96%87%E4%BB%B6%E7%9A%84%E7%94%A8%E6%B3%95/</id>
-    <published>2018-06-24T16:00:00.000Z</published>
-    <updated>2020-08-05T09:03:54.579Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="vue-cli项目中src目录每个文件夹和文件的用法？"><a href="#vue-cli项目中src目录每个文件夹和文件的用法？" class="headerlink" title="vue-cli项目中src目录每个文件夹和文件的用法？"></a>vue-cli项目中src目录每个文件夹和文件的用法？</h3><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">src assets           |     静态资源 （图片、js、css）</span><br><span class="line">components           |     非路由组件</span><br><span class="line">views                |      路由组件</span><br><span class="line">router               |      路由配置</span><br><span class="line">store                |      vuex（仓库）</span><br><span class="line">App.vue              |      挂载的第一个组件</span><br><span class="line">main.js              |      全局的文件</span><br><span class="line"></span><br><span class="line">index.html =&gt; main.js  =&gt; App.vue</span><br><span class="line"> </span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h3 id=&quot;vue-cli项目中src目录每个文件夹和文件的用法？&quot;&gt;&lt;a href=&quot;#vue-cli项目中src目录每个文件夹和文件的用法？&quot; class=&quot;headerlink&quot; title=&quot;vue-cli项目中src目录每个文件夹和文件的用法？&quot;&gt;&lt;/a&gt;vue-c
-      
-    
-    </summary>
-    
-    
-      <category term="Vue" scheme="http://yoursite.com/categories/Vue/"/>
-    
-      <category term="基础" scheme="http://yoursite.com/categories/Vue/%E5%9F%BA%E7%A1%80/"/>
-    
-    
-      <category term="Vue 基础知识 路由跳转" scheme="http://yoursite.com/tags/Vue-%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86-%E8%B7%AF%E7%94%B1%E8%B7%B3%E8%BD%AC/"/>
     
   </entry>
   
